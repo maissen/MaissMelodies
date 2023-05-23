@@ -57,7 +57,7 @@
                     var select_buttons = document.querySelectorAll('#select-purpose__select button');
                     for(let i = 0; i < select_buttons.length; i++){
                         select_buttons[i].addEventListener('click', function(){
-                            if(select_buttons[i].dataset.active == 'false'){
+                            if(select_buttons[i]..type.active == 'false'){
                                 select_buttons[i].dataset.active = 'true';
                                 select_buttons[i].querySelector('audio').load();
                                 select_buttons[i].querySelector('audio').play();
@@ -146,13 +146,13 @@
         <nav id="nav">
             <h1 id="nav__title">Maiss Melodies</h1>
             <div id="nav__mixes-filter">
-                <button type="button" class="nav-active-button">All</button>
-                <button type="button">Sleep</button>
-                <button type="button">Rain</button>
-                <button type="button">Relax</button>
-                <button type="button">Meditation</button>
-                <button type="button">City & Instrument</button>
-                <button type="button">Favorits</button>
+                <button type="button" onclick="apply_filter('all')" class="nav-active-button">All</button>
+                <button type="button" onclick="apply_filter('sleep')">Sleep</button>
+                <button type="button" onclick="apply_filter('rain')">Rain</button>
+                <button type="button" onclick="apply_filter('relax')">Relax</button>
+                <button type="button" onclick="apply_filter('meditation')">Meditation</button>
+                <button type="button" onclick="apply_filter('city')">City & Instrument</button>
+                <button type="button" onclick="apply_filter('favorits')">Favorits</button>
 
                 <!--? add the nav-active-button to the clicked button -->
                 <script>
@@ -166,7 +166,6 @@
                         });
                     }
                 </script>
-
             </div>
         </nav>
 
@@ -226,6 +225,7 @@
 
         <div id="loadContent" data-display = 'block'></div>
 
+        <!--? Display the load content -->
         <script>
             let boxs = document.querySelectorAll('.box');
             let loadContent = document.getElementById('loadContent');
@@ -234,6 +234,27 @@
                 boxs[i].onclick = function(){
                     loadContent.style.display = loadContent.dataset.display;
                 }
+            }
+        </script>
+
+        
+        <!--? apply the filter -->
+        <script>
+            function apply_filter(filter){
+                let boxs = document.querySelectorAll('.box');
+
+                for(let i = 0; i < boxs.length; i++){
+                    if(filter == 'all'){
+                        boxs[i].style.display = 'block';
+                    }
+                    else if(boxs[i].dataset.type != filter){
+                        boxs[i].style.display = 'none';
+                    }
+                    else{
+                        boxs[i].style.display = 'block';
+                    }
+                }      
+                console.log(filter);  
             }
         </script>
     </main>

@@ -214,6 +214,7 @@ body {
   font-family: sans-serif;
   min-height: 660px;
   min-width: 280px;
+  background: #002c23;
 }
 
 @keyframes fade-out {
