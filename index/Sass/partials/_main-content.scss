@@ -205,18 +205,35 @@
         }
     }
 
-    &__play-stop{
-        padding: 1rem 3rem;
+    &__buttons{
         position: absolute;
         bottom: 4%;
+        width: 85%;
         left: 50%;
         transform: translateX(-50%);
-        border: 2px solid white;
-        background: none;
-        font-size: 1.5rem;
-        border-radius: 25px;
-        color: white;
+        display: flex;
+        justify-content: space-between;
+
+        #loadContent__play-stop{
+            @extend %btn;
+            padding: 1rem 3rem;
+        }
+        #loadContent__favorite{
+            @extend %btn;
+            width: 45px;
+            height: 45px;
+        }
+        #loadContent__clock{
+            @extend %btn;
+            width: 45px;
+            height: 45px;
+        }
     }
+}
+.active-favorite-btn{
+    border-color: red !important;
+    color: red !important;
+    background-color: rgba(255, 0, 0, 0.123) !important;
 }
 
 @keyframes playing-music{
@@ -231,3 +248,10 @@
     }
 }
 
+%btn{
+        border: 2px solid white;
+        background: none;
+        font-size: 1.5rem;
+        border-radius: 25px;
+        color: white;
+}

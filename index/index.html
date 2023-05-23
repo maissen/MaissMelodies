@@ -240,21 +240,59 @@
                 </div>
             </div>
 
-            <button type="button" id="loadContent__play-stop">
-                <i class="fa-solid fa-play" id="icon"></i>
-            </button>
-            <script>
-                let icon = document.getElementById('icon');
-                document.getElementById('loadContent__play-stop').onclick = function(){
-                    if(icon.classList.contains('fa-play')){
-                        icon.classList.remove('fa-play');
-                        icon.classList.add('fa-pause');
-                    }else{
-                        icon.classList.remove('fa-pause');
-                        icon.classList.add('fa-play');
-                    }
-                }
-            </script>
+            <div id="loadContent__buttons">
+                <button type="button" id="loadContent__clock">
+                    <i class="fa-solid fa-clock" id="clock"></i>
+    
+                    <!--? display the timer table -->
+                    <script>
+                        // let icon = document.getElementById('icon');
+                        // document.getElementById('loadContent__play-stop').onclick = function(){
+                        //     if(icon.classList.contains('fa-play')){
+                        //         icon.classList.remove('fa-play');
+                        //         icon.classList.add('fa-pause');
+                        //     }else{
+                        //         icon.classList.remove('fa-pause');
+                        //         icon.classList.add('fa-play');
+                        //     }
+                        // }
+                    </script>
+                </button>
+                <button type="button" id="loadContent__play-stop">
+                    <i class="fa-solid fa-play" id="icon"></i>
+    
+                    <!--? toggle play / stop button -->
+                    <script>
+                        let icon = document.getElementById('icon');
+                        document.getElementById('loadContent__play-stop').onclick = function(){
+                            if(icon.classList.contains('fa-play')){
+                                icon.classList.remove('fa-play');
+                                icon.classList.add('fa-pause');
+                            }else{
+                                icon.classList.remove('fa-pause');
+                                icon.classList.add('fa-play');
+                            }
+                        }
+                    </script>
+                </button>
+                <button type="button" id="loadContent__favorite" data-active="false">
+                    <i class="fa-solid fa-heart" id="favorite"></i>
+    
+                    <!--? activate favorite button on click  -->
+                    <script>
+                        let favorite = document.getElementById('loadContent__favorite');
+                        favorite.onclick = function(){
+                            if(favorite.dataset.active == 'false'){
+                                favorite.classList.add('active-favorite-btn');
+                                favorite.dataset.active = 'true';
+                            }else{
+                                favorite.classList.remove('active-favorite-btn');
+                                favorite.dataset.active = 'false';
+                            }
+                        }
+                    </script>
+                </button> 
+            </div>           
         </div>
 
         <!--? Display the load content -->
