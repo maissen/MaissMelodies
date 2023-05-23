@@ -1,0 +1,42 @@
+#toolbar{
+    height: 70px;
+    width: 100%;
+    background: $main-color-1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: $nav-zindex;
+
+    ul{
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        font-size: 1.4rem;
+        list-style-type: none;
+
+        li{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: gray;
+            position: relative;
+            transition:color $transition;
+            z-index: 1;
+        }
+    }
+
+    img{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        transition: $transition;
+        z-index: 0;
+    }
+
+    .active-toolbar-link{
+        color: white !important;
+    }
+}

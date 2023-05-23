@@ -279,6 +279,13 @@
   width: 45px;
   height: 45px;
 }
+#loadContent__buttons #loadContent__play-stop, #loadContent__buttons #loadContent__favorite, #loadContent__buttons #loadContent__clock {
+  border: 2px solid white;
+  background: none;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  color: white;
+}
 
 .active-favorite-btn {
   border-color: red !important;
@@ -297,12 +304,43 @@
     background-position: top left;
   }
 }
-#loadContent__buttons #loadContent__play-stop, #loadContent__buttons #loadContent__favorite, #loadContent__buttons #loadContent__clock {
-  border: 2px solid white;
-  background: none;
-  font-size: 1.5rem;
-  border-radius: 25px;
-  color: white;
+#toolbar {
+  height: 70px;
+  width: 100%;
+  background: #002c23;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+#toolbar ul {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 1.4rem;
+  list-style-type: none;
+}
+#toolbar ul li {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  position: relative;
+  transition: color 0.4s;
+  z-index: 1;
+}
+#toolbar img {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  transition: 0.4s;
+  z-index: 0;
+}
+#toolbar .active-toolbar-link {
+  color: white !important;
 }
 
 :root {

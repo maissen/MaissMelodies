@@ -236,6 +236,13 @@
             width: 45px;
             height: 45px;
         }
+        %btn{
+            border: 2px solid white;
+            background: none;
+            font-size: 1.5rem;
+            border-radius: 25px;
+            color: white;
+        }
     }
 }
 .active-favorite-btn{
@@ -256,10 +263,3 @@
     }
 }
 
-%btn{
-        border: 2px solid white;
-        background: none;
-        font-size: 1.5rem;
-        border-radius: 25px;
-        color: white;
-}
