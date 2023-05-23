@@ -1,8 +1,8 @@
 
 //? Main colors ::
-$main-color-1: #1AA37A;
-$main-color-2: #9DFFB3;
-$main-bg-color: linear-gradient(45deg, $main-color-1 30%, $main-color-2);
+$main-color-1: #002c23;
+$main-color-2: lighten($main-color-1, 15%);
+$main-bg-color: linear-gradient(to right, lighten($main-color-1, 10%) 30%, $main-color-2);
 
 //? Fonts
 $main-font: 'VarieGraphie', sans-serif;
@@ -11,3 +11,4 @@ $other-font: 'Hopkinson';
 
 $transition: .4s;
 $active-button: $main-color-1;
+$nav-zindex: 10;

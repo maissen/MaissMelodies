@@ -142,6 +142,7 @@
                 });
             </script>
         </header>
+
         <nav id="nav">
             <h1 id="nav__title">Maiss Melodies</h1>
             <div id="nav__mixes-filter">
@@ -167,6 +168,56 @@
 
             </div>
         </nav>
+
+        <div id="container">
+            <div class="box" style="background-image: url(../components/img/night\ forest.jpg);">
+                <h2 class="box__name">forest</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/camping.jpg);">
+                <h2 class="box__name">Camping</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/deep\ thinking.jpg);">
+                <h2 class="box__name">Deep thinking</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/spring.jpg);">
+                <h2 class="box__name">Spring</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/ocean\ storm.jpg);">
+                <h2 class="box__name">Ocian Storm</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/beach.jpg);">
+                <h2 class="box__name">Beach</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/cave.jpg);">
+                <h2 class="box__name">Cave</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/night.jpg);">
+                <h2 class="box__name">Night</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/night\ forest.jpg);">
+                <h2 class="box__name">Night Forest</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/city\ life.jpg);">
+                <h2 class="box__name">City Life</h2>
+            </div>
+            <div class="box" style="background-image: url(../components/img/deep\ relaxing.jpg);">
+                <h2 class="box__name">Deep Relaxing</h2>
+            </div>
+
+        </div>
+
+        <div id="loadContent" data-display = 'block'></div>
+
+        <script>
+            let boxs = document.querySelectorAll('.box');
+            let loadContent = document.getElementById('loadContent');
+
+            for(let i = 0; i < boxs.length; i++){
+                boxs[i].onclick = function(){
+                    loadContent.style.display = loadContent.dataset.display;
+                }
+            }
+        </script>
     </main>
 
     <script src="main.js"></script>

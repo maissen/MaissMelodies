@@ -25,7 +25,7 @@
 body{
     font-family: sans-serif;
     min-height: 660px;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 @keyframes fade-out{
@@ -51,7 +51,13 @@ body{
 }
 
 .nav-active-button{
-    background: $active-button !important;
+    background: $main-bg-color !important;
     color: white !important;
     font-weight: 500;
+}
+
+@media (min-width: 1024px){
+    body{
+        display: none;
+    }
 }
