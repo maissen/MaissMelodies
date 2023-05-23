@@ -193,6 +193,13 @@
   animation: playing-music 60s linear infinite;
   z-index: 11;
 }
+#loadContent__close-section {
+  background: none;
+  border: none;
+  font-size: 2.3rem;
+  color: white;
+  margin: 1rem;
+}
 #loadContent__timer {
   width: 210px;
   height: 210px;

@@ -224,6 +224,18 @@
         </div>
 
         <div id="loadContent" data-display = 'block'>
+            <button type="button" id="loadContent__close-section">
+                <i class="fa-solid fa-xmark" id="close-section"></i>
+
+                <!--? display the timer table -->
+                <script>
+                        let closeBtn = document.getElementById('loadContent__close-section');
+                        closeBtn.onclick = function(){
+                            loadContent.style.display = 'none';
+                        }
+                </script>
+            </button>
+
             <div id="loadContent__timer">
                 <div id="time">
                     <h1><span>15</span> : <span>32</span></h1>
@@ -277,14 +289,18 @@
                 </button>
                 <button type="button" id="loadContent__favorite" data-active="false">
                     <i class="fa-solid fa-heart" id="favorite"></i>
-    
-                    <!--? activate favorite button on click  -->
+                    <audio src="../components/audio/mixkit-software-interface-start-2574.mp3" id="favorite-sound-btn"></audio>
+
+                    <!--? activate favorite button on click and save the sounds  -->
                     <script>
                         let favorite = document.getElementById('loadContent__favorite');
+                        let favorite_sound = document.getElementById('favorite-sound-btn');
                         favorite.onclick = function(){
                             if(favorite.dataset.active == 'false'){
                                 favorite.classList.add('active-favorite-btn');
                                 favorite.dataset.active = 'true';
+                                favorite_sound.load();
+                                favorite_sound.play();
                             }else{
                                 favorite.classList.remove('active-favorite-btn');
                                 favorite.dataset.active = 'false';

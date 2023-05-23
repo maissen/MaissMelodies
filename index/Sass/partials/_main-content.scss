@@ -140,6 +140,14 @@
     animation: playing-music 60s linear infinite;
     z-index: $nav-zindex + 1;
 
+    &__close-section{
+        background: none;
+        border: none;
+        font-size: 2.3rem;
+        color: white;
+        margin: 1rem;
+    }
+
     &__timer{
         width: $timer-dimention;
         height: $timer-dimention;
