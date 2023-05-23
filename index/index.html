@@ -223,7 +223,39 @@
             </div>
         </div>
 
-        <div id="loadContent" data-display = 'block'></div>
+        <div id="loadContent" data-display = 'block'>
+            <div id="loadContent__timer">
+                <div id="time">
+                    <h1><span>15</span> : <span>32</span></h1>
+                    <h2>Timer</h2>
+                </div>
+            </div>
+            
+            <div id="loadContent__sounds">
+                <div id="add-sound">
+                    Add
+                </div>
+                <div id="content">
+                    hello
+                </div>
+            </div>
+
+            <button type="button" id="loadContent__play-stop">
+                <i class="fa-solid fa-play" id="icon"></i>
+            </button>
+            <script>
+                let icon = document.getElementById('icon');
+                document.getElementById('loadContent__play-stop').onclick = function(){
+                    if(icon.classList.contains('fa-play')){
+                        icon.classList.remove('fa-play');
+                        icon.classList.add('fa-pause');
+                    }else{
+                        icon.classList.remove('fa-pause');
+                        icon.classList.add('fa-play');
+                    }
+                }
+            </script>
+        </div>
 
         <!--? Display the load content -->
         <script>
@@ -233,11 +265,12 @@
             for(let i = 0; i < boxs.length; i++){
                 boxs[i].onclick = function(){
                     loadContent.style.display = loadContent.dataset.display;
+                    loadContent.style.background = boxs[i].style.backgroundImage;
+                    document.body.classList.add('stopscrolling');
                 }
             }
         </script>
 
-        
         <!--? apply the filter -->
         <script>
             function apply_filter(filter){

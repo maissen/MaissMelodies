@@ -29,6 +29,12 @@ body{
     background: $main-color-1;
 }
 
+.stopscrolling{
+    &::-webkit-scrollbar{
+        display: none !important;
+    }
+}
+
 @keyframes fade-out{
     0%{
         transform: translateY(5px);

@@ -12,3 +12,8 @@ $other-font: 'Hopkinson';
 $transition: .4s;
 $active-button: $main-color-1;
 $nav-zindex: 10;
+$timer-zindex: 5;
+$timer-dimention: 210px;
+$c1-zindex: timer-zindex - 1;
+$c2-zindex: timer-zindex - 2;
+$c3-zindex: timer-zindex - 3;
