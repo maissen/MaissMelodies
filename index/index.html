@@ -308,6 +308,7 @@
 
                             // append the box to favorite list
                             boxs[i].dataset.favorite = 'true';
+                            document.getElementById('nav__mixes-filter').children[6].click();
 
                         }else{
                             favorite.classList.remove('active-favorite-btn');
@@ -332,7 +333,7 @@
                     else if(boxs[i].dataset.type == filter){
                         boxs[i].style.display = 'block';
                     }
-                    else if(boxs[i].dataset.favorite == 'true'){
+                    else if(boxs[i].dataset.favorite == 'true' && filter == 'favorite'){
                         boxs[i].style.display = 'block';
                     }
                     else{
