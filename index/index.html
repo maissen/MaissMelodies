@@ -17,9 +17,107 @@
 
 </head>
 <body>
-    
+    <div id="greeting">
+        <div id="salut" data-display = 'block'>
+            <h3>Welcome To</h3>
+            <h1>Maiss Melodies</h1>
+            <h4><strong>V1.0</strong></h4>
+        </div>
+        <div id="me" data-display = 'block'>
+            <h3>Made By</h3>
+            <h1>Maissen Belgacem</h1>
+        </div>
+
+        <div id="select-purpose" data-display = 'block'>
+            <h1 id="select-purpose__title">You are looking for</h1>
+            <div id="select-purpose__select">
+                <button type="button" data-color1 = '#6ab4f9c9' data-color2="royalblue" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/baby-mobile.png" alt="baby-mobile"/>
+                    <p>Better Sleep</p>
+                    <audio src="../components/audio/piano-C.wav"></audio>
+                </button>
+                <button type="button" data-color1 = '#ffafccc9' data-color2="crimson" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/meditation-guru.png" alt="baby-mobile"/>
+                    <p>Relaxing</p>
+                    <audio src="../components/audio/piano-D.wav"></audio>
+                </button>
+                <button type="button" data-color1 = '#cdb4dbc9' data-color2="purple" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/services--v1.png" alt="baby-mobile"/>
+                    <p>Focus</p>
+                    <audio src="../components/audio/piano-E.wav"></audio>
+                </button>
+                <button type="button" data-color1 = '#99d98cc9' data-color2="darkgreen" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/working-with-a-laptop.png" alt="baby-mobile"/>
+                    <p>Work</p>
+                    <audio src="../components/audio/piano-F.wav"></audio>
+                </button>
+
+                <!--? this script is to add the sound once you click on the items -->
+                <script>
+                    var select_buttons = document.querySelectorAll('#select-purpose__select button');
+                    for(let i = 0; i < select_buttons.length; i++){
+                        select_buttons[i].addEventListener('click', function(){
+                            if(select_buttons[i].dataset.active == 'false'){
+                                select_buttons[i].dataset.active = 'true';
+                                select_buttons[i].querySelector('audio').load();
+                                select_buttons[i].querySelector('audio').play();
+
+                                select_buttons[i].style.background = "{select_buttons[i].dataset.color2} !important";
+                                console.log(select_buttons[i].dataset.color2);
+                            }else{
+                                select_buttons[i].dataset.active = 'false';
+                                select_buttons[i].style.background = "{select_buttons[i].dataset.color1} !important";
+                                console.log(select_buttons[i].dataset.color1);
+                            }
+                        });
+                    }
+                </script>
+            </div>
+            <button type="button" id="x">Next</button>
+        </div>
+
+        
+        <!--? this script to play the fade-out and disppear animations for the elements -->
+        <script>
+            var i = 0;
+            var salut = document.getElementById('salut');
+            var me = document.getElementById('me');
+            var select_purpose = document.getElementById('select-purpose');
+            appear(salut);
+            setTimeout(function() {
+                disappear(salut);
+            }, 2500);
+            setTimeout(function() {
+                appear(me);
+            }, 4000);
+            setTimeout(function() {
+                disappear(me);
+            }, 6500);
+            setTimeout(function() {
+                appear(select_purpose);
+            }, 8000);
+
+            var nexBtn = document.querySelector('#select-purpose #x');
+            nexBtn.addEventListener('click', function(){
+                disappear(select_purpose);
+            });
+
+            function appear(element){
+                element.style.display = element.dataset.display;
+                element.style.animation = 'fade-out 1.5s linear';
+            }
+            function disappear(element){
+                element.style.animation = 'disappear 1.5s linear';
+                setTimeout(() => {
+                    element.style.display = 'none';
+                    element.style.animation = '';
+                }, 1500);
+            }
+        </script>
+    </div>
 
 
     <script src="main.js"></script>
+    <script src="js/greeting.js"></script>
 </body>
 </html>

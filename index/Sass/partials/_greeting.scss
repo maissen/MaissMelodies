@@ -1,0 +1,78 @@
+#greeting{
+    width: 100%;
+    height: 100vh;
+    background: url('../../../components/img/main\ bg\ 1.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #salut{
+        margin-top: -300px;
+        display: none;
+
+        h3{
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #000;   
+            & + h1{
+                font-size: 3rem;
+                font-family: $main-font;
+                color: #033052;
+            }
+        }
+    }
+    #me{
+        margin-top: -300px;
+        display: none;
+
+        h3{
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #000;   
+            & + h1{
+                font-size: 3rem;
+                font-family: $main-font;
+                color: #033052;
+            }
+        }
+    }
+
+    #select-purpose{
+        text-align: center; 
+        display: none;
+        &__select{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.3rem;
+            margin-top: 2.7rem;   
+            margin-bottom: 2.5rem;
+
+            button{
+                border: none;
+                transition:background $transition;
+                &:nth-child(1){background: #6ab4f9c9; /*&:hover{background: royalblue}*/}
+                &:nth-child(2){background: #ffafccc9; /*&:hover{background: lighten(#a70842c9, 10%);}*/}
+                &:nth-child(3){background: #cdb4dbc9; /*&:hover{background: purple}*/}
+                &:nth-child(4){background: #99d98cc9; /*&:hover{background: darkgreen}*/}
+                padding: 1rem 2.3rem;
+                cursor: pointer;
+                font-weight: 550;
+
+                img{
+                    width: 3rem;
+                }
+            }  
+        }
+        #x{
+            padding: 1rem 2.9rem;
+            background: $main-color-1;
+            border: none;
+            cursor: pointer;
+            font-weight: 550;
+            border-radius: 50px;
+        }
+    }
+}
+

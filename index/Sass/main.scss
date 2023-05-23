@@ -1,0 +1,50 @@
+//! Assets ::
+@import 'assets/typography';
+@import 'assets/variables';
+
+//! Partials ::
+@import 'partials/greeting';
+
+:root{
+    font-size: 16px;
+    @media screen and (max-width: 768px) {
+        font-size: 14px; /* Font size for smaller screens */
+    }
+    @media screen and (max-width: 480px) {
+        font-size: 12px; /* Font size for even smaller screens */
+    }
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    min-height: 660px;
+    min-width: 300px;
+}
+
+@keyframes fade-out{
+    0%{
+        transform: translateY(10px);
+        opacity: .1;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes disappear{
+    0%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+}
