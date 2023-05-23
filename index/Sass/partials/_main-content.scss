@@ -29,6 +29,8 @@
     #nav{
         // background: crimson;
         text-align: center;
+        position: sticky;
+        top: 5px;
 
         &__title{
             font-family: $main-font;
