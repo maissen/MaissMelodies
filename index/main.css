@@ -168,6 +168,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
+  white-space: nowrap;
 }
 @media (min-width: 600px) {
   #main-content #container {
