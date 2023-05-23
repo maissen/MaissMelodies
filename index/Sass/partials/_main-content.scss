@@ -1,0 +1,57 @@
+#main-content{
+    height: 200vh;
+    background: #002c23;
+
+
+    header{
+        height: 220px;
+        position: relative;
+        background-image: url('../../../components/img/sky.webp');
+        background-size: cover;
+        overflow-x: hidden;
+
+        img{
+            width: 120%;
+            position: absolute;
+            bottom: 0;
+        }
+        .img1{
+            height: 100px;
+            width: auto;
+            top: 0;
+        }
+        .img2{
+            left: 0;
+            bottom: 30px;
+        }
+    }
+
+    #nav{
+        // background: crimson;
+        text-align: center;
+
+        &__title{
+            font-family: $main-font;
+            margin-bottom: 1rem;
+            color: $main-color-1;
+            font-size: 2rem;
+        }
+
+        &__mixes-filter{
+            overflow-x: scroll;
+            display: flex;
+            button{
+                padding: 1rem 2.4rem;
+                white-space: nowrap;
+                color: gray;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
+    }
+}
