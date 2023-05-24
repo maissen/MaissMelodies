@@ -35,3 +35,28 @@ $c3-zindex: timer-zindex - 3;
             font-size: 2rem;
         }
 }
+
+@mixin range-input(){
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+
+    &::-webkit-slider-runnable-track{
+        background-color: $main-color-2;
+        border-radius: 23px;
+        height: 3px;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        margin-top: -3.8px; /* Centers thumb on the track */
+        background-color: gray;
+        border-radius: 5px;
+        height: 12px;
+        width: 12px;
+    }
+    &:focus::-webkit-slider-thumb {
+        outline: 3px solid #8c2626;
+        outline-offset: 0.125rem;
+    }
+}

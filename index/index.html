@@ -237,73 +237,91 @@
                 </nav>
                 <div>
                     <div>
-                        <h2>Current Sounds</h2>
-                        <div class="horizental-sounds-gallery">
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
-                            <div>hello</div>
+                        <h2>Nature</h2>
+                        <div class="sounds-gallery">
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="10">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="10">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="10">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="10">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="10">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Winds</p>
+                                <input class="item__volume" type="range"  min="0" max="10">
+                                <audio src="../components/audio/nature/"></audio>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div>
-                        <h2>All  sounds</h2>
-                        <div class="sounds-gallery">
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                            <p>hello</p>
-                        </div>
-                    </div>
+                    <!--? add the script to play/stop the audios -->
+                    <script>
+                        var items = document.querySelectorAll('.sounds-gallery .item');
+
+                        for(let o = 0; o < items.length; o++){
+                            items[o].children[0].addEventListener('click', function(){
+                                items[o].children[0].classList.toggle('activeSound');
+                                
+                                if(items[o].children[0].classList.contains('activeSound')){
+                                    items[o].children[2].style.visibility = 'visible';
+                                    items[o].children[3].load();
+                                    items[o].children[3].play();
+                                }else{
+                                    items[o].children[2].style.visibility = 'hidden';
+                                    items[o].children[3].stop();
+                                }
+
+                                items[o].children[2].addEventListener('input', function(){
+                                    items[o].children[3].volume = items[o].children[2].value;
+                                });
+                            });
+                        }
+                    </script>
 
                     <div class="action-buttons">
                         <button type="button"><i class="fa-solid fa-clock"></i></button>
