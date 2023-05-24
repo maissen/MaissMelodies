@@ -231,10 +231,86 @@
                     <h1 class="logo">Maiss Melodies</h1>
                 </nav>
             </div>
-            <div id="create" data-display="grid">
+            <div id="create" data-display="block">
                 <nav class="nav">
                     <h1 class="logo">Maiss Melodies</h1>
                 </nav>
+                <div>
+                    <div>
+                        <h2>Current Sounds</h2>
+                        <div class="horizental-sounds-gallery">
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                            <div>hello</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2>All  sounds</h2>
+                        <div class="sounds-gallery">
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                            <p>hello</p>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button"><i class="fa-solid fa-clock"></i></button>
+                        <button type="button"><i class="fa-solid fa-play"></i></button>
+                        <button type="button"><i class="fa-solid fa-headphones"></i></button>
+                    </div>
+                </div>
             </div>
             <div id="settings" data-display="grid">
                 <nav class="nav">
@@ -587,13 +663,10 @@
 
                             // append the box to favorite list
                             boxs[i].dataset.favorite = 'true';
-                            document.getElementById('nav__mixes-filter').children[6].click();
 
                         }else{
                             favorite.classList.remove('active-favorite-btn');
                             boxs[i].dataset.favorite = 'false';
-
-                            document.getElementById('nav__mixes-filter').children[6].click();
                         }
                     }
                 }
