@@ -704,34 +704,92 @@
                         </div>
                     </div>
 
-                    <!--? add the script to play/stop the audios -->
+                    
                     <script>
-                        var items = document.querySelectorAll('.sounds-gallery .item');
-
-                        for(let o = 0; o < items.length; o++){
-                            items[o].children[0].addEventListener('click', function(){
-                                items[o].children[0].classList.toggle('activeSound');
-                                
-                                if(items[o].children[0].classList.contains('activeSound')){
-                                    items[o].children[2].style.visibility = 'visible';
-                                    items[o].children[3].load();
-                                    items[o].children[3].play();
-                                }else{
-                                    items[o].children[2].style.visibility = 'hidden';
-                                    items[o].children[3].pause();
-                                }
-
-                                items[o].children[2].addEventListener('input', function(){
-                                    items[o].children[3].volume = items[o].children[2].value;
-                                });
-                            });
-                        }
+                        
                     </script>
 
                     <div class="action-buttons">
                         <button type="button"><i class="fa-solid fa-clock"></i></button>
                         <button type="button"><i class="fa-solid fa-play"></i></button>
                         <button type="button"><i class="fa-solid fa-headphones"></i></button>
+
+                        <script>
+                            var items = document.querySelectorAll('.sounds-gallery .item');
+                            var isPlaying = false;
+                            var count = 0;
+                            // add the script to play/stop the audios
+                            for(let o = 0; o < items.length; o++){
+                                items[o].children[0].addEventListener('click', function(){
+                                    items[o].children[0].classList.toggle('activeSound');
+                                    
+                                    if(items[o].children[0].classList.contains('activeSound')){
+                                        items[o].children[2].style.visibility = 'visible';
+                                        items[o].children[3].load();
+                                        items[o].children[3].play();
+                                        items[o].children[3].dataset.playing = 'true';
+                                        isPlaying = true;
+                                        count++;
+                                        updatePlayStopBtn(isPlaying );
+                                    }else{
+                                        items[o].children[2].style.visibility = 'hidden';
+                                        items[o].children[3].pause();
+                                        count--;
+                                        if(count == 0){
+                                            isPlaying = false;
+                                        }
+                                        items[o].children[3].dataset.playing = 'false';
+                                        updatePlayStopBtn(isPlaying, count);
+                                    }
+
+                                    items[o].children[2].addEventListener('input', function(){
+                                        items[o].children[3].volume = items[o].children[2].value;
+                                    });
+                                });
+                            }
+                            let play_stop = document.querySelector('.action-buttons').children[1];
+                                
+                            function updatePlayStopBtn(isPlaying, count){
+                                    if(count != 0){
+                                        if(isPlaying){
+                                            play_stop.children[0].classList = 'fa-solid fa-pause';
+                                        }else{
+                                            play_stop.children[0].classList = 'fa-solid fa-play';
+                                        }
+                                    }
+                                    else{
+                                        play_stop.children[0].classList = 'fa-solid fa-play';
+                                    }
+                                }
+
+                            play_stop.onclick = function(){
+                                playOrStop(count);
+                            }
+
+                            function playOrStop(count){
+                                if(count != 0){
+                                    if(isPlaying){
+                                        for(let o = 0; o < items.length; o++){
+                                            if(items[o].children[0].classList.contains('activeSound')){
+                                                items[o].children[3].pause();
+                                            }
+                                            play_stop.children[0].classList = 'fa-solid fa-play';
+                                        }
+                                        isPlaying = false;
+                                    }
+                                    else{
+                                        for(let o = 0; o < items.length; o++){
+                                            if(items[o].children[0].classList.contains('activeSound')){
+                                                items[o].children[3].play();
+                                            }
+                                            play_stop.children[0].classList = 'fa-solid fa-pause';
+                                        }
+                                        isPlaying = true;
+                                    }
+                                }
+                                // return isPlaying;
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
