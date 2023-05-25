@@ -2,8 +2,9 @@
     & > div{
         padding: 0 1rem;
         padding-bottom: 8rem;
+        background: linear-gradient(to bottom, $main-color-1, #141414);
 
-        h2{
+        h1{
             margin: 1.8rem 0 2rem 0;
             color: white;
         }
@@ -12,17 +13,16 @@
             width: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 9rem;
+            grid-auto-rows: 11rem;
             row-gap: 1.7rem;
             margin-bottom: 3rem;
 
             @media (min-width: 600px){
                 grid-template-columns: repeat(5, 1fr);
-                grid-auto-rows: 10rem;
             }
             @media (min-width: 780px){
                 grid-template-columns: repeat(6, 1fr);
-                grid-auto-rows: 11rem;
+                grid-auto-rows: 9.5rem;
             }
 
             .activeSound{
@@ -43,7 +43,8 @@
                 &__thumb{
                     width: 60px;
                     height: 60px;
-                    background: #222;
+                    background: #609966;
+                    border-radius: 1rem;
                     color: white;
                     display: inherit;
                     align-items: inherit;
@@ -52,13 +53,27 @@
                 }
 
                 &__name{
-                    color: white;
+                    color: rgb(176, 176, 176);
                     font-size: 1.5rem;
-                    width: 90%;
-                    white-space: nowrap;
+                    width: 80%;
+                    white-space: wrap;
                     overflow: hidden;
-                    text-overflow: ellipsis;
+                    // text-overflow: ellipsis;
+                    line-clamp: 2;
                     margin: auto;
+                    // animation-name: infinite-scrolling;
+                    animation-duration: 4s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+
+                    @keyframes infinite-scrolling {
+                        100%, 0%{
+                            transform: translateX(0);
+                        }
+                        50%{
+                            transform: translateX(-30%);
+                        }
+                    }
                 }
 
                 &__volume{
@@ -84,8 +99,7 @@
             display: flex;
             justify-content: space-between;
             align-content: center;
-            background: linear-gradient(to top, $main-color-1, rgba($main-color-1, .5));
-            backdrop-filter: blur(3px);
+            background: linear-gradient(to top, #141414, rgba(#141414, .5));
             z-index: $nav-zindex;
 
             button{

@@ -115,6 +115,7 @@
 #main-content .nav .logo {
   font-family: "VarieGraphie", sans-serif;
   margin-bottom: 1rem;
+  padding: 1rem;
   color: #007960;
   font-size: 2rem;
 }
@@ -270,7 +271,7 @@
 #toolbar {
   height: 70px;
   width: 100%;
-  background: #002c23;
+  background: #141414;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -351,8 +352,9 @@
 #create > div {
   padding: 0 1rem;
   padding-bottom: 8rem;
+  background: linear-gradient(to bottom, #002c23, #141414);
 }
-#create > div h2 {
+#create > div h1 {
   margin: 1.8rem 0 2rem 0;
   color: white;
 }
@@ -360,20 +362,19 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 9rem;
+  grid-auto-rows: 11rem;
   row-gap: 1.7rem;
   margin-bottom: 3rem;
 }
 @media (min-width: 600px) {
   #create > div .sounds-gallery {
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 10rem;
   }
 }
 @media (min-width: 780px) {
   #create > div .sounds-gallery {
     grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 11rem;
+    grid-auto-rows: 9.5rem;
   }
 }
 #create > div .sounds-gallery .activeSound {
@@ -393,7 +394,8 @@
 #create > div .sounds-gallery .item__thumb {
   width: 60px;
   height: 60px;
-  background: #222;
+  background: #609966;
+  border-radius: 1rem;
   color: white;
   display: inherit;
   align-items: inherit;
@@ -401,13 +403,24 @@
   font-size: 2rem;
 }
 #create > div .sounds-gallery .item__name {
-  color: white;
+  color: rgb(176, 176, 176);
   font-size: 1.5rem;
-  width: 90%;
-  white-space: nowrap;
+  width: 80%;
+  white-space: wrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  line-clamp: 2;
   margin: auto;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes infinite-scrolling {
+  100%, 0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-30%);
+  }
 }
 #create > div .sounds-gallery .item__volume {
   width: 65%;
@@ -448,8 +461,7 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  background: linear-gradient(to top, #002c23, rgba(0, 44, 35, 0.5));
-  backdrop-filter: blur(3px);
+  background: linear-gradient(to top, #141414, rgba(20, 20, 20, 0.5));
   z-index: 10;
 }
 #create > div .action-buttons button {
