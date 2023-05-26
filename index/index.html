@@ -707,7 +707,7 @@
                     <div class="timer">
                         <p>- Set Time -</p>
                         <div>
-                            <button type='button' data-time='15'>15 Minutes</button>
+                            <button type='button' data-time='0.1'>15 Minutes</button>
                             <button type='button' data-time='30'>30 Minutes</button>
                             <button type='button' data-time='60'>1 Hour</button>
                             <button type='button' data-time='120'>2 Hours</button>
@@ -716,33 +716,6 @@
                             <button type='button'>Save</button>
                             <button type='button' class="closeTimer">Close</button>
                         </div>
-
-                        <script>
-                            var timer = document.querySelector('.timer');
-                            document.querySelector('.closeTimer').onclick = function(){
-                                timer.style.visibility = 'hidden';
-                                document.body.style.overflowY = 'scroll';
-                            }
-
-                            var seconds = 0;
-                            times = timer.children[1].children;
-                            for(let o = 0; o < times.length - 2; o++){
-                                times[o].onclick = function(){
-                                    seconds = this.dataset.time * 60;
-                                }
-                                times[times.length-2].onclick = function(){
-                                    setInterval(function(){
-                                        seconds--;
-                                        if((seconds % 60) < 10){
-                                            document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : 0' + seconds % 60;
-                                        }else{
-                                            document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : ' + seconds % 60;
-                                        }
-                                    }, 1000);
-                                    displayTimerOptions2(false);
-                                }
-                            }
-                        </script>
                     </div>
 
                     <div class="action-buttons">
@@ -836,7 +809,7 @@
                             }
                         </script>
 
-                        <!--? Setting the alarm -->
+                        <!--? Setting the timer -->
                         <script>
                             function displayTimerOptions2(state){
                                 if(state){
@@ -845,6 +818,49 @@
                                 }else{
                                     timer.style.visibility = 'hidden';
                                     document.body.style.overflowY = 'scroll';
+                                }
+                            }
+                        </script>
+
+                        <script>
+                            var timer = document.querySelector('.timer');
+                            document.querySelector('.closeTimer').onclick = function(){
+                                timer.style.visibility = 'hidden';
+                                document.body.style.overflowY = 'scroll';
+                            }
+
+                            var seconds = 0;
+                            times = timer.children[1].children;
+                            for(let o = 0; o < times.length - 2; o++){
+                                times[o].onclick = function(){
+                                    seconds = this.dataset.time * 60;
+                                }
+                                times[times.length-2].onclick = function(){
+                                    if(count != 0){
+                                        setInterval(function(){
+                                            if(seconds > 0){
+                                                seconds--;
+                                                if((seconds % 60) < 10){
+                                                    document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : 0' + seconds % 60;
+                                                }else{
+                                                    document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : ' + seconds % 60;
+                                                }
+                                                if(seconds == 0){
+                                                    isPlaying = false;
+                                                    updatePlayStopBtn(isPlaying, count);
+                                                    for(let o = 0; o < items.length; o++){
+                                                        if(items[o].children[0].classList.contains('activeSound')){
+                                                            items[o].children[3].pause();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else{
+                                                document.querySelector('.timerBanner').textContent = 'Set Timer';
+                                            }
+                                        }, 1000);
+                                    }
+                                    displayTimerOptions2(false);
                                 }
                             }
                         </script>

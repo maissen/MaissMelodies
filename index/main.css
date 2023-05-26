@@ -281,6 +281,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  visibility: hidden;
 }
 .timer p {
   margin-bottom: 1.8rem;
