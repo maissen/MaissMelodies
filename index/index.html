@@ -709,8 +709,8 @@
                         <div>
                             <button type='button' data-time='15'>15 Minutes</button>
                             <button type='button' data-time='30'>30 Minutes</button>
-                            <button type='button' data-time='1'>1 Hour</button>
-                            <button type='button' data-time='2'>2 Hours</button>
+                            <button type='button' data-time='60'>1 Hour</button>
+                            <button type='button' data-time='120'>2 Hours</button>
                             <button type='button' data-time='custom'>Custom</button>
                             <button type='button' data-time='off'>Off</button>
                             <button type='button'>Save</button>
@@ -718,15 +718,39 @@
                         </div>
 
                         <script>
+                            var timer = document.querySelector('.timer');
                             document.querySelector('.closeTimer').onclick = function(){
-                                document.querySelector('.timer').style.visibility = 'hidden';
+                                timer.style.visibility = 'hidden';
+                                document.body.style.overflowY = 'scroll';
+                            }
+
+                            var seconds = 0;
+                            times = timer.children[1].children;
+                            for(let o = 0; o < times.length - 2; o++){
+                                times[o].onclick = function(){
+                                    seconds = this.dataset.time * 60;
+                                }
+                                times[times.length-2].onclick = function(){
+                                    setInterval(function(){
+                                        seconds--;
+                                        if((seconds % 60) < 10){
+                                            document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : 0' + seconds % 60;
+                                        }else{
+                                            document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : ' + seconds % 60;
+                                        }
+                                    }, 1000);
+                                    displayTimerOptions2(false);
+                                }
                             }
                         </script>
                     </div>
 
                     <div class="action-buttons">
-                        <button type="button"><i class="fa-solid fa-clock" onclick="displayTimerOptions2()"></i></button>
-                        <button type="button"><i class="fa-solid fa-play"></i></button>
+                        <button type="button" id="PlayStopBtnCreateSection"><i class="fa-solid fa-play"></i></button>
+                        <button type="button" onclick="displayTimerOptions2(true)">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="timerBanner">Set Timer</p>
+                        </button>
                         <button type="button"><i class="fa-solid fa-headphones"></i></button>
 
                         <!--? add the script to play/stop the audios -->
@@ -744,18 +768,23 @@
                                         items[o].children[2].style.visibility = 'visible';
                                         items[o].children[3].load();
                                         items[o].children[3].play();
-                                        items[o].children[3].dataset.playing = 'true';
                                         isPlaying = true;
                                         count++;
-                                        updatePlayStopBtn(isPlaying );
-                                    }else{
+
+                                        for(let j = 0; j < items.length; j++){
+                                            if(items[j].children[0].classList.contains('activeSound')){
+                                                items[j].children[3].play();
+                                            }
+                                        }
+                                        updatePlayStopBtn(isPlaying);
+                                    }
+                                    else{
                                         items[o].children[2].style.visibility = 'hidden';
                                         items[o].children[3].pause();
                                         count--;
                                         if(count == 0){
                                             isPlaying = false;
                                         }
-                                        items[o].children[3].dataset.playing = 'false';
                                         updatePlayStopBtn(isPlaying, count);
                                     }
 
@@ -764,22 +793,22 @@
                                     });
                                 });
                             }
-                            let play_stop = document.querySelector('.action-buttons').children[1];
+                            let PlayStopBtnCreateSection = document.getElementById('PlayStopBtnCreateSection');
                                 
                             function updatePlayStopBtn(isPlaying, count){
                                     if(count != 0){
                                         if(isPlaying){
-                                            play_stop.children[0].classList = 'fa-solid fa-pause';
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-pause';
                                         }else{
-                                            play_stop.children[0].classList = 'fa-solid fa-play';
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-play';
                                         }
                                     }
                                     else{
-                                        play_stop.children[0].classList = 'fa-solid fa-play';
+                                        PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-play';
                                     }
                                 }
 
-                            play_stop.onclick = function(){
+                            PlayStopBtnCreateSection.onclick = function(){
                                 playOrStop(count);
                             }
 
@@ -790,7 +819,7 @@
                                             if(items[o].children[0].classList.contains('activeSound')){
                                                 items[o].children[3].pause();
                                             }
-                                            play_stop.children[0].classList = 'fa-solid fa-play';
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-play';
                                         }
                                         isPlaying = false;
                                     }
@@ -799,7 +828,7 @@
                                             if(items[o].children[0].classList.contains('activeSound')){
                                                 items[o].children[3].play();
                                             }
-                                            play_stop.children[0].classList = 'fa-solid fa-pause';
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-pause';
                                         }
                                         isPlaying = true;
                                     }
@@ -809,8 +838,14 @@
 
                         <!--? Setting the alarm -->
                         <script>
-                            function displayTimerOptions2(){
-                                alert()
+                            function displayTimerOptions2(state){
+                                if(state){
+                                    timer.style.visibility = 'visible';
+                                    document.body.style.overflowY = 'hidden';
+                                }else{
+                                    timer.style.visibility = 'hidden';
+                                    document.body.style.overflowY = 'scroll';
+                                }
                             }
                         </script>
                     </div>
