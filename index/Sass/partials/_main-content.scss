@@ -79,10 +79,19 @@
         size: cover;
         repeat: no-repeat;
     };
-    animation: playing-music 60s linear infinite;
     z-index: $nav-zindex + 1;
 
+    img{
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: playing-music 40s linear infinite;
+        z-index: 0;
+    }
+
     &__close-section{
+        position: relative;
         background: none;
         border: none;
         font-size: 2.3rem;
@@ -157,12 +166,14 @@
 
     &__buttons{
         position: absolute;
-        bottom: 4%;
-        width: 85%;
+        bottom: 0;
+        width: 100%;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
         justify-content: space-between;
+        padding: 1.2rem 1.5rem;
+        background: #141414c9;
 
         #loadContent__play-stop{
             @extend %btn;
@@ -195,13 +206,13 @@
 
 @keyframes playing-music{
     0%{
-        background-position: top left;
+        left: 0;
     }
     50%{
-        background-position: top right;
+        left: -100%;
     }
     100%{
-        background-position: top left;
+        left: 0;
     }
 }
 
