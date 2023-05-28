@@ -392,6 +392,10 @@
   }
 }
 
+#customized {
+  background: yellowgreen;
+}
+
 #create > div {
   padding: 0 1rem;
   padding-bottom: 8rem;
