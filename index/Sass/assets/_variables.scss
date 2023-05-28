@@ -25,7 +25,8 @@ $c3-zindex: timer-zindex - 3;
     padding-top: 5px;
     margin-bottom: 1.4rem;
     background: #002c23;
-    width: 100vw;
+    width: 100%;
+    overflow-y: hidden;
 
         z-index: $nav-zindex;
         .logo{
@@ -67,6 +68,7 @@ $c3-zindex: timer-zindex - 3;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
         padding:0 1rem;
+        max-width: 100%;
 
         .box{
             height: 150px;
