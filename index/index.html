@@ -722,7 +722,7 @@
                             <button type='button' data-time='60'>1 Hour</button>
                             <button type='button' data-time='120'>2 Hours</button>
                             <button type='button' data-time='custom'>Custom</button>
-                            <button type='button' data-time='off'>Off</button>
+                            <button type='button' data-time='0'>Off</button>
                             <button type='button'>Save</button>
                             <button type='button' class="closeTimer">Close</button>
                         </div>
@@ -847,9 +847,17 @@
                             times = timer.children[1].children;
                             for(let o = 0; o < times.length - 2; o++){
                                 times[o].onclick = function(){
-                                    seconds = this.dataset.time * 60;
-                                    for(let j = 0; j < times.length - 2; j++){
-                                        times[j].classList.remove("active_timer_button");
+                                    if(this.dataset.time == 'custom'){
+                                        do{
+                                            seconds = prompt("enter the number of minutes :");
+                                        }while(isNaN(seconds) || seconds == '');
+                                        seconds *= 60;
+                                    }
+                                    else{
+                                        seconds = this.dataset.time * 60;
+                                        for(let j = 0; j < times.length - 2; j++){
+                                            times[j].classList.remove("active_timer_button");
+                                        }
                                     }
                                     this.classList.add("active_timer_button");
                                 }
