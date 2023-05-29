@@ -838,6 +838,9 @@
                             document.querySelector('.closeTimer').onclick = function(){
                                 timer.style.visibility = 'hidden';
                                 document.body.style.overflowY = 'scroll';
+                                for(let j = 0; j < times.length - 2; j++){
+                                        times[j].classList.remove("active_timer_button");
+                                }
                             }
 
                             var seconds = 0;
@@ -845,38 +848,46 @@
                             for(let o = 0; o < times.length - 2; o++){
                                 times[o].onclick = function(){
                                     seconds = this.dataset.time * 60;
+                                    for(let j = 0; j < times.length - 2; j++){
+                                        times[j].classList.remove("active_timer_button");
+                                    }
+                                    this.classList.add("active_timer_button");
                                 }
-                                times[times.length-2].onclick = function(){
-                                    if(count != 0){
-                                        setInterval(function(){
-                                            if(seconds > 0){
-                                                if(isPlaying){
-                                                    seconds--;
-                                                    if((seconds % 60) < 10){
-                                                        document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : 0' + seconds % 60;
-                                                    }else{
-                                                        document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : ' + seconds % 60;
-                                                    }
-                                                    if(seconds == 0){
-                                                        isPlaying = false;
-                                                        updatePlayStopBtn(isPlaying, count);
-                                                        for(let o = 0; o < items.length; o++){
-                                                            if(items[o].children[0].classList.contains('activeSound')){
-                                                                items[o].children[3].pause();
-                                                            }
+                            }
+                            times[times.length-2].onclick = function(){
+                                if(count != 0){
+                                    for(let j = 0; j < times.length - 2; j++){
+                                        times[j].classList.remove("active_timer_button");
+                                    }
+
+                                    setInterval(function(){
+                                        if(seconds > 0){
+                                            if(isPlaying){
+                                                seconds--;
+                                                if((seconds % 60) < 10){
+                                                    document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : 0' + seconds % 60;
+                                                }else{
+                                                    document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : ' + seconds % 60;
+                                                }
+                                                if(seconds == 0){
+                                                    isPlaying = false;
+                                                    updatePlayStopBtn(isPlaying, count);
+                                                    for(let o = 0; o < items.length; o++){
+                                                        if(items[o].children[0].classList.contains('activeSound')){
+                                                            items[o].children[3].pause();
                                                         }
                                                     }
                                                 }
                                             }
-                                            else{
-                                                document.querySelector('.timerBanner').textContent = 'Set Timer';
-                                            }
-                                        }, 1000);
-                                    }
-                                    displayTimerOptions2(false);
+                                        }
+                                        else{
+                                            document.querySelector('.timerBanner').textContent = 'Set Timer';
+                                        }
+                                    }, 1000);
                                 }
+                                displayTimerOptions2(false);
                             }
-                        </script>
+                            </script>
                     </div>
                 </div>
             </div>

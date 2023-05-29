@@ -218,7 +218,7 @@
 
 .timer{
     width: 100%;
-    background: darkmagenta;
+    background: #141414;
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -242,12 +242,20 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin-bottom: 1rem;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     button{
         padding: 1rem 1.6rem;
         display: inline-block;
         font-size: 1.5rem;
+        border: .2rem solid $main-color-1;
+        background: none;
+        color: gray;
+        transition:background-color $transition;
+    }
+    .active_timer_button{
+        background: $main-bg-color;
+        color: white;
     }
 }

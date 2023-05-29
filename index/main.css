@@ -281,7 +281,7 @@
 }
 .timer {
   width: 100%;
-  background: darkmagenta;
+  background: #141414;
   position: fixed;
   bottom: 0;
   left: 50%;
@@ -304,12 +304,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 1rem;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .timer button {
   padding: 1rem 1.6rem;
   display: inline-block;
   font-size: 1.5rem;
+  border: 0.2rem solid #002c23;
+  background: none;
+  color: gray;
+  transition: background-color 0.4s;
+}
+.timer .active_timer_button {
+  background: linear-gradient(to right, #005f4c 30%, #007960);
+  color: white;
 }
 
 #toolbar {
