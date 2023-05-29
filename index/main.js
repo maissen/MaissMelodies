@@ -18,8 +18,17 @@ function save_custom(){
     customized.appendChild(item);
     var saved_items = document.getElementsByClassName('custom_item');
     for(let j = 0; j < saved_items.length; j++){
-        saved_items[j].onclick = function(){
-            play_custom(saved_items[j].children[2].getAttribute('class'));
+        saved_items[j].onclick = function(event){
+            if(event.target != "<button type=\"button\"><i class=\"fa-solid fa-heart\"></i></button>"){
+                play_custom(saved_items[j].children[2].getAttribute('class'));
+            }
+        }
+    }
+    for(let j = 0; j < saved_items.length; j++){
+        saved_items[j].children[1].children[1].onclick = function(){
+            if(confirm("Are you sure you want to delete " + item.getElementsByClassName('name')[0].textContent)){
+                customized.removeChild(saved_items[j]);
+            }
         }
     }
 }

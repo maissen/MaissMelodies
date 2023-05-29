@@ -421,6 +421,13 @@
   border-bottom: 0.1rem solid gray;
   color: #007960;
 }
+#customized div .second button {
+  color: #007960;
+  font-size: 1.6rem;
+  border: none;
+  background: none;
+  padding: 0.4rem 0.6rem;
+}
 #customized div .second .name {
   display: block;
   font-size: 1.6rem;

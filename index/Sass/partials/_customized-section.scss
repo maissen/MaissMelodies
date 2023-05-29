@@ -32,6 +32,14 @@
             border-bottom: .1rem solid gray;
             color: $main-color-2;
             
+            button{
+                color: $main-color-2;
+                font-size: 1.6rem;
+                border: none;
+                background: none;
+                padding: .4rem .6rem;
+            }
+            
             .name{
                 display: block;
                 font-size: 1.6rem;
