@@ -456,6 +456,12 @@
   gap: 1rem;
 }
 
+#settings {
+  color: gray;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 :root {
   font-size: 16px;
 }
