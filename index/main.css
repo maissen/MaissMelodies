@@ -144,124 +144,6 @@
   padding-bottom: 2rem;
 }
 
-#loadContent {
-  height: 100vh;
-  width: 100%;
-  background-color: violet;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  background-position: top left;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 11;
-}
-#loadContent img {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: playing-music 40s linear infinite;
-  z-index: 0;
-}
-#loadContent__close-section {
-  position: relative;
-  background: none;
-  border: none;
-  font-size: 2.3rem;
-  color: white;
-  margin: 1rem;
-}
-#loadContent__timer {
-  width: 210px;
-  height: 210px;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  border: 4px solid white;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: spread 4s linear infinite;
-  z-index: 5;
-}
-@keyframes spread {
-  0% {
-    box-shadow: 0 0 0 0 white;
-  }
-  50% {
-    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.409), inset 0 0 5px 5px rgba(255, 255, 255, 0.409);
-  }
-  100% {
-    box-shadow: 0 0 0 0 white;
-  }
-}
-#loadContent__timer #time {
-  color: white;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-}
-#loadContent__timer #time h1 {
-  font-size: 3rem;
-}
-#loadContent__timer #time h2 {
-  display: block;
-  margin: auto;
-  margin-top: 1rem;
-}
-#loadContent__sounds {
-  height: 70px;
-  width: 90%;
-  background: royalblue;
-  margin: auto;
-  margin-top: 200px;
-  padding-left: 85px;
-  position: relative;
-}
-#loadContent__sounds #add-sound {
-  height: 70px;
-  width: 70px;
-  background: crimson;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#loadContent__buttons {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: space-between;
-  padding: 1.2rem 1.5rem;
-  background: rgba(20, 20, 20, 0.7882352941);
-}
-#loadContent__buttons #loadContent__play-stop {
-  padding: 1rem 3rem;
-}
-#loadContent__buttons #loadContent__favorite {
-  width: 45px;
-  height: 45px;
-}
-#loadContent__buttons #loadContent__clock {
-  width: 45px;
-  height: 45px;
-}
-#loadContent__buttons #loadContent__play-stop, #loadContent__buttons #loadContent__favorite, #loadContent__buttons #loadContent__clock {
-  border: 2px solid white;
-  background: none;
-  font-size: 1.5rem;
-  border-radius: 25px;
-  color: white;
-}
-
 .active-favorite-btn {
   border-color: red !important;
   color: red !important;
@@ -409,15 +291,11 @@
   font-size: 1.8rem;
   padding: 0.5rem 0.6rem;
   display: none;
-}
-#customized div:last-child .second {
-  border: none;
+  color: gray;
 }
 #customized div .thumb {
   height: 55px;
   width: 55px;
-  background: linear-gradient(to right, #005f4c 30%, #007960);
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -427,8 +305,6 @@
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  border-bottom: 0.1rem solid gray;
-  color: gray;
 }
 #customized div .second button {
   color: #007960;
