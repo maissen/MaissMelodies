@@ -3,7 +3,9 @@ function save_custom(){
         var item = document.getElementById('custom_item').cloneNode(true);
         item.style.display = 'flex';
         var customized = document.getElementById('customized');
-        x = prompt('What would you like as a name ?');
+        do{
+            x = prompt('What would you like as a name ?');
+        }while(x == '');
         item.getElementsByClassName('name')[0].textContent = x;
         item.id = '';
 

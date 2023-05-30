@@ -156,8 +156,7 @@
                         <button type="button" onclick="apply_filter('relax')">Relax</button>
                         <button type="button" onclick="apply_filter('meditation')">Meditation</button>
                         <button type="button" onclick="apply_filter('city')">City & Instrument</button>
-                        <button type="button" onclick="apply_filter('favorite')">Favorits</button>
-
+                        
                         <!--? add the nav-active-button to the clicked button -->
                         <script>
                             let buttons = document.querySelectorAll('button');
@@ -1002,49 +1001,6 @@
             </script>
         </div>
 
-        <!--? Display the load content -->
-        <script>
-            var boxs = document.querySelectorAll('.box');
-            let loadContent = document.getElementById('loadContent');
-            let favorite = document.getElementById('loadContent__favorite');
-            let favorite_sound = document.getElementById('favorite-sound-btn');
-
-            for(let i = 0; i < boxs.length; i++){
-                boxs[i].onclick = function(){
-                    loadContent.style.display = loadContent.dataset.display;
-                    loadContent.querySelector('img').src = boxs[i].dataset.src;
-                    loadContent.style.background = boxs[i].style.backgroundImage;
-                    document.body.classList.add('stopscrolling');
-
-                    if(boxs[i].dataset.favorite == 'true'){
-                        favorite.classList.add('active-favorite-btn');
-                    }else{
-                        favorite.classList.remove('active-favorite-btn');
-                    }
-
-                    // load the name of the box in the load section
-                    document.getElementById('loadName').textContent = boxs[i].children[0].textContent;
-
-                    <!--? activate favorite button on click and save the sounds  -->
-                    favorite.onclick = function(){
-                        if(boxs[i].dataset.favorite == 'false'){
-                            favorite.classList.add('active-favorite-btn');
-                            favorite.dataset.active = 'true';
-                            favorite_sound.load();
-                            favorite_sound.play();
-
-                            // append the box to favorite list
-                            boxs[i].dataset.favorite = 'true';
-
-                        }else{
-                            favorite.classList.remove('active-favorite-btn');
-                            boxs[i].dataset.favorite = 'false';
-                        }
-                    }
-                }
-            }
-        </script>
-
         <!--? apply the filter -->
         <script>
             function apply_filter(filter){
@@ -1057,14 +1013,10 @@
                     else if(boxs[i].dataset.type == filter){
                         boxs[i].style.display = 'block';
                     }
-                    else if(boxs[i].dataset.favorite == 'true' && filter == 'favorite'){
-                        boxs[i].style.display = 'block';
-                    }
                     else{
                         boxs[i].style.display = 'none';
                     }
                 }      
-                console.log(filter);  
             }
         </script>
     </main>
