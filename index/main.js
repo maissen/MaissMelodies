@@ -1,3 +1,8 @@
+window.onload = function(){
+    
+}
+
+
 function save_custom(){
     if(count != 0){
         var item = document.getElementById('custom_item').cloneNode(true);

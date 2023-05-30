@@ -1,12 +1,16 @@
 #greeting{
     width: 100%;
     height: 100vh;
+    position: fix;
+    top: 0;
+    left: 0;
     background: url('../../../components/img/main\ bg\ 1.jpg') no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 20000;
 
     #salut, #me{
         margin-top: -300px;
@@ -53,6 +57,7 @@
         #x{
             padding: 1rem 2.9rem;
             background: $main-color-1;
+            color: white;
             border: none;
             cursor: pointer;
             font-weight: 550;

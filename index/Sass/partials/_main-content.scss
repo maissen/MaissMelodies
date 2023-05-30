@@ -1,11 +1,12 @@
 #main-content{
     background: #002c23;
     padding-bottom: 70px;
+    display: none;
 
     header{
         height: 220px;
         position: relative;
-        background-image: url('../../../components/img/sky.png');
+        background-image: url('../../../components/img/sky.jpg');
         background-size: cover;
         overflow-x: hidden;
 
