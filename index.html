@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaissMelodies</title>
+
+    <!-- stylesheet link -->
+    <link rel="stylesheet" href="index/main.css">
+
+    <!-- Add the Favicon -->
+    <link rel="shortcut icon" href="components/icons/favicon.png" type="image/x-icon">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <section id="greeting">
+        <div id="salut" data-display = 'block'>
+            <h3>Welcome To</h3>
+            <h1>Maiss Melodies</h1>
+            <h4><strong>V1.0</strong></h4>
+        </div>
+        <div id="me" data-display = 'block'>
+            <h3>Made By</h3>
+            <h1>Maissen Belgacem</h1>
+        </div>
+
+        <div id="select-purpose" data-display = 'block'>
+            <h1 id="select-purpose__title">You are looking for</h1>
+            <div id="select-purpose__select">
+                <button type="button" data-color1 = '#6ab4f9c9' data-color2="royalblue" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/baby-mobile.png" alt="baby-mobile"/>
+                    <p>Better Sleep</p>
+                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                </button>
+                <button type="button" data-color1 = '#ffafccc9' data-color2="crimson" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/meditation-guru.png" alt="baby-mobile"/>
+                    <p>Relaxing</p>
+                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                </button>
+                <button type="button" data-color1 = '#cdb4dbc9' data-color2="purple" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/services--v1.png" alt="baby-mobile"/>
+                    <p>Focus</p>
+                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                </button>
+                <button type="button" data-color1 = '#99d98cc9' data-color2="darkgreen" data-active='false'>
+                    <img src="https://img.icons8.com/color/48/working-with-a-laptop.png" alt="baby-mobile"/>
+                    <p>Work</p>
+                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                </button>
+
+                <!--? this script is to add the sound once you click on the items -->
+                <script>
+                    var select_buttons = document.querySelectorAll('#select-purpose__select button');
+                    for(let i = 0; i < select_buttons.length; i++){
+                        select_buttons[i].addEventListener('click', function(){
+                            if(select_buttons[i].type.active == 'false'){
+                                select_buttons[i].dataset.active = 'true';
+                                select_buttons[i].querySelector('audio').load();
+                                select_buttons[i].querySelector('audio').play();
+
+                                select_buttons[i].style.background = "{select_buttons[i].dataset.color2} !important";
+                                console.log(select_buttons[i].dataset.color2);
+                            }else{
+                                select_buttons[i].dataset.active = 'false';
+                                select_buttons[i].style.background = "{select_buttons[i].dataset.color1} !important";
+                                console.log(select_buttons[i].dataset.color1);
+                            }
+                        });
+                    }
+                </script>
+            </div>
+            <button type="button" id="x">Next</button>
+        </div>
+
+        <div id="full_screen" data-display = 'block'>
+            <h3>Please click this button to enable 'full screen' for a better user experience</h3>
+            <button type="button">Go Full Screen</button>
+        </div>
+
+        <!--?  Check if the Fullscreen API is available -->
+        <script>
+            var fullScreenAvailable = false;
+            document.addEventListener("DOMContentLoaded", function() {
+                if (document.fullscreenEnabled || document.webkitFullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled) {
+                    fullScreenAvailable = true;
+                }
+            });
+            
+        </script>
+        
+        <!--? this script to play the fade-out and disppear animations for the elements -->
+        <script>
+            var i = 0;
+            var salut = document.getElementById('salut');
+            var me = document.getElementById('me');
+            var select_purpose = document.getElementById('select-purpose');
+            var full_screen = document.getElementById('full_screen');
+
+            appear(salut);
+            setTimeout(function() {
+                disappear(salut);
+            }, 2500);
+            setTimeout(function() {
+                appear(me);
+            }, 4000);
+            setTimeout(function() {
+                disappear(me);
+            }, 6500);
+            setTimeout(function() {
+                appear(select_purpose);
+            }, 8000);
+
+            document.querySelector('#full_screen button').addEventListener('click', function(){
+
+                <!--! to go full screen -->
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.msRequestFullscreen) {
+                    document.documentElement.msRequestFullscreen();
+                } 
+
+                disappear(full_screen);
+                setTimeout(() => {
+                    document.getElementById('greeting').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                }, 1500);
+            });
+
+            
+
+            document.querySelector('#select-purpose #x').addEventListener('click', function(){
+                disappear(select_purpose);
+
+                if(fullScreenAvailable){
+                    setTimeout(() => {
+                        appear(full_screen);
+                    }, 1500);
+                }else{
+                    setTimeout(() => {
+                        document.getElementById('greeting').style.display = 'none';
+                        document.getElementById('main-content').style.display = 'block';
+                    }, 1500);
+                }
+            });
+
+            function appear(element){
+                element.style.display = element.dataset.display;
+                element.style.animation = 'fade-out 1.5s linear';
+            }
+            function disappear(element){
+                element.style.animation = 'disappear 1.5s linear';
+                setTimeout(() => {
+                    element.style.display = 'none';
+                    element.style.animation = '';
+                }, 1500);
+                document.getElementById('toolbar').children[1].children[0].click();
+            }
+        </script>
+
+        <!--? to avoid displaying the content before the bg image -->
+        <script>
+            window.addEventListener('load', function() {
+                var bgImage = new Image();
+                bgImage.onload = function() {
+                    document.querySelector('#greeting').style.display = 'flex'; // Show the content once the background image has loaded
+                };
+                bgImage.src = '../../../components/img/main\ bg\ 1.jpg'; // Replace with the path to your background image
+            });
+        </script>
+    </section>
+
+    <main id="main-content">
+        <header>
+            <img src="components/img/moon.png" class="img1 img" alt="parallax item couldn't be loaded :/">
+            <img src="components/img/hill2.png" class="img2 img" alt="parallax item couldn't be loaded :/">
+            <img src="components/img/hill3.png" class="img3 img" alt="parallax item couldn't be loaded :/">
+            <img src="components/img/leaf.png" class="img4 img" alt="parallax item couldn't be loaded :/">
+            <img src="components/img/plant.png" class="img5 img" alt="parallax item couldn't be loaded :/">
+
+            <!--? Add the scrolling parallax effect -->
+            <script>
+                var img = document.querySelectorAll('.img');
+                window.addEventListener('scroll', function(){
+                    img[0].style.transform = 'translateY(' + window.scrollY / 1.9 + 'px)';
+                    img[0].style.transform = 'translateX(' + window.scrollY / 3.9 + 'px)';
+                    img[1].style.transform = 'translateX(' + -window.scrollY / 2.9 + 'px)';
+                    img[2].style.transform = 'translateX(' + window.scrollY / 3.9 + 'px)';
+                    img[3].style.transform = 'translateX(' + window.scrollY / 1.5+ 'px)';
+                });
+            </script>
+        </header>
+
+        
+
+        <div id="container">
+            <div id="home" data-display="grid">
+                <nav class="nav">
+                    <h1 class="logo">Maiss Melodies</h1>
+                    <div class="nav__mixes-filter">
+                        <button type="button" onclick="apply_filter('all')" class="nav-active-button">All</button>
+                        <button type="button" onclick="apply_filter('sleep')">Sleep</button>
+                        <button type="button" onclick="apply_filter('rain')">Rain</button>
+                        <button type="button" onclick="apply_filter('relax')">Relax</button>
+                        <button type="button" onclick="apply_filter('meditation')">Meditation</button>
+                        <button type="button" onclick="apply_filter('city')">City & Instrument</button>
+
+                        <!--? add the nav-active-button to the clicked button -->
+                        <script>
+                            let buttons = document.querySelectorAll('button');
+                            for(let i = 0; i < buttons.length; i++){
+                                buttons[i].addEventListener('click', function(){
+                                    for(let j = 0; j < buttons.length; j++){
+                                        buttons[j].classList.remove('nav-active-button');
+                                    }
+                                    buttons[i].classList.add('nav-active-button');
+                                });
+                            }
+                        </script>
+                    </div>
+                </nav>
+                <div>
+                    <div class="box" data-type="relax" data-favorite='false' data-src = "components/img/nightforest.jpg" style="background-image: url(components/img/nightforest.jpg);">
+                        <h2 class="box__name">forest</h2>
+                        <div class="4-0.5/23-1/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="relax" data-favorite='false' data-src = "components/img/camping.jpg" style="background-image: url(components/img/camping.jpg);">
+                        <h2 class="box__name">Camping</h2>
+                        <div class="4-0.5/5-1/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="meditation" data-favorite='false' data-src = "components/img/deepthinking.jpg" style="background-image: url(components/img/deepthinking.jpg);">
+                        <h2 class="box__name">Deep thinking</h2>
+                        <div class="29-0.5/2-0.1/3-0.3/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="relax" data-favorite='false' data-src = "components/img/spring.jpg" style="background-image: url(components/img/spring.jpg);">
+                        <h2 class="box__name">Spring</h2>
+                        <div class="19-1/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="rain" data-favorite='false' data-src = "components/img/oceanstorm.jpg" style="background-image: url(components/img/oceanstorm.jpg);">
+                        <h2 class="box__name">Ocian Storm</h2>
+                        <div class="2-0.9/3-1/25-1/48-0.7/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="relax" data-favorite='false' data-src = "components/img/beach.jpg" style="background-image: url(components/img/beach.jpg);">
+                        <h2 class="box__name">Beach</h2>
+                        <div class="0-1/47-0.5/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="meditation" data-favorite='false' data-src = "components/img/cave.jpg" style="background-image: url(components/img/cave.jpg);">
+                        <h2 class="box__name">Cave</h2>
+                        <div class="3-0.4/10-0.4/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="sleep" data-favorite='false' data-src = "components/img/night.jpg" style="background-image: url(components/img/night.jpg);">
+                        <h2 class="box__name">Night</h2>
+                        <div class="13-1/42-0.1/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="rain" data-favorite='false' data-src = "components/img/rainyforest.jpg" style="background-image: url(components/img/rainyforest.jpg);">
+                        <h2 class="box__name">Rainy Forest</h2>
+                        <div class="14-1/17-0.6/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="city" data-favorite='false' data-src = "components/img/citylife.jpg" style="background-image: url(components/img/citylife.jpg);">
+                        <h2 class="box__name">City Life</h2>
+                        <div class="53-1/55-0.6/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="relax" data-favorite='false' data-src = "components/img/deeprelaxing.jpg" style="background-image: url(components/img/deeprelaxing.jpg);">
+                        <h2 class="box__name">Deep Relaxing</h2>
+                        <div class="31-0.1/33-0.6/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="sleep" data-favorite='false' data-src = "components/img/sleep.jpg" style="background-image: url(components/img/sleep.jpg);">
+                        <h2 class="box__name">Sleep</h2>
+                        <div class="2-0.2/3-0.3/37-0.6/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="rain" data-favorite='false' data-src = "components/img/snowstorm.jpg" style="background-image: url(components/img/snowstorm.jpg);">
+                        <h2 class="box__name">Snow Storm</h2>
+                        <div class="18-1/26-0.4/49-0.2/50-0.7/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="relax" data-favorite='false' data-src = "components/img/oceanlife.jpg" style="background-image: url(components/img/oceanlife.jpg);">
+                        <h2 class="box__name">Ocean Life</h2>
+                        <div class="7-1/48-0.1/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="meditation" data-favorite='false' data-src = "components/img/focus.jpg" style="background-image: url(components/img/focus.jpg);">
+                        <h2 class="box__name">Focus</h2>
+                        <div class="19-0.4/24-0.2/33-0.7/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="sleep" data-favorite='false' data-src = "components/img/sadness.webp" style="background-image: url(components/img/sadness.webp);">
+                        <h2 class="box__name">Sadness</h2>
+                        <div class="3-0.3/6-1/16-0.4/39-0.5/" style="display: none;"></div>
+                    </div>
+                    <div class="box" data-type="city" data-favorite='false' data-src = "components/img/piano.jfif" style="background-image: url(components/img/piano.jfif);">
+                        <h2 class="box__name">Piano</h2>
+                        <div class="19-0.4/24-0.2/33-0.1/40-0.5/" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="customized" data-display="grid">
+                <nav class="nav">
+                    <h1 class="logo">Maiss Melodies</h1>
+                </nav>
+                <div id="custom_item" class='custom_item'>
+                    <div class="thumb">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+                    <div class="second">
+                        <div class="name">A Custom Mix</div>
+                        <button type="button"><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class=""></div>
+                </div>
+            </div>
+            <div id="create" data-display="block">
+                <nav class="nav">
+                    <h1 class="logo">Maiss Melodies</h1>
+                </nav>
+                <div>
+                    <div>
+                        <h1 id="nature">Nature</h1>
+                        <div class="sounds-gallery">
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-umbrella-beach"></i>
+                                </div>
+                                <p class="item__name">beach waves 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/beach waves 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-umbrella-beach"></i>
+                                </div>
+                                <p class="item__name">beach waves 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/beach waves 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-cloud-rain"></i>
+                                </div>
+                                <p class="item__name">heavy rain</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/heavy rain.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Howling wind</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/howling wind.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-tree"></i>
+                                </div>
+                                <p class="item__name">forest</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/forest.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-fire"></i>
+                                </div>
+                                <p class="item__name">camp fire 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/camp fire.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-fire"></i>
+                                </div>
+                                <p class="item__name">camp fire 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/camp fire 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-water"></i>
+                                </div>
+                                <p class="item__name">under water</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/bubbling under water.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-mountain-sun"></i>
+                                </div>
+                                <p class="item__name">cave 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/cave 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-mountain-sun"></i>
+                                </div>
+                                <p class="item__name">cave 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/cave 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-mountain-sun"></i>
+                                </div>
+                                <p class="item__name">cave 3</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/cave 3.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-umbrella"></i>
+                                </div>
+                                <p class="item__name">light rain</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/light rain.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-cloud-moon"></i>
+                                </div>
+                                <p class="item__name">night 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/night 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-cloud-moon"></i>
+                                </div>
+                                <p class="item__name">night 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/night 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <p class="item__name">rain on leaves</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/rain on leaves.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                </div>
+                                <p class="item__name">rain on roof 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/rain on roof 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                </div>
+                                <p class="item__name">rain on roof 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/rain on roof 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-cloud-bolt"></i>
+                                </div>
+                                <p class="item__name">storm</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/storm.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-cloud-meatball"></i>
+                                </div>
+                                <p class="item__name">snow storm</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/snow storm.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-trillium"></i>
+                                </div>
+                                <p class="item__name">spring</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/spring.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">rain on window 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/rain on window 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">rain on window 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/rain on window 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">rain on window 3</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/rain on window 3.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">river 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/river.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">river 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/river 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">thunder</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/thunder.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">walking on snow</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/walking on snow.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">water fall</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/water fall.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">Wind</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/nature/wind.mp3"></audio>
+                            </div>
+
+                        </div>
+
+                        <h1>relax & focus</h1>
+                        <div class="sounds-gallery">
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">brain waves</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/brain waves.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">flute 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/flute 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">flute 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/flute 3.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">jazz</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/jazz 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">meditation</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/meditation 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">melody 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/melody.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">melody 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/melody 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">music 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/music 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">music 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/music 3.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">piano 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/piano 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">piano 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/piano 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">piano 3</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/relax & focus/piano E.mp3"></audio>
+                            </div>
+                        </div>
+
+                        <h1>Animals</h1>
+                        <div class="sounds-gallery">
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">cat purr</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/cat purr.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">cricket</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/cricket 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">crows</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/crows.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">frog</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/frog.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">owl 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/owl 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">owl 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/owl 2.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">seagulls</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/seagulls.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">whales</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/whales.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">wolf 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/wolf 1.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">wolf 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/animals/wolf 2.mp3"></audio>
+                            </div>
+                            
+                        </div>
+
+                        <h1>Environment</h1>
+                        <div class="sounds-gallery">
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">cafe</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/environment/cafe.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">hight way</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/environment/hight way.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">people</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/environment/people.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">walking 1</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/environment/walking.mp3"></audio>
+                            </div>
+                            <div class="item">
+                                <div class="item__thumb">
+                                    <i class="fa-solid fa-wind"></i>
+                                </div>
+                                <p class="item__name">walking 2</p>
+                                <input class="item__volume" type="range"  min="0" max="1" step=".1">
+                                <audio loop src="components/audio/environment/walking 2.mp3"></audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timer">
+                        <p>- Set Time -</p>
+                        <div>
+                            <button type='button' data-time='15'>15 Minutes</button>
+                            <button type='button' data-time='30'>30 Minutes</button>
+                            <button type='button' data-time='60'>1 Hour</button>
+                            <button type='button' data-time='120'>2 Hours</button>
+                            <button type='button' data-time='custom'>Custom</button>
+                            <button type='button' data-time='0'>Off</button>
+                            <button type='button'>Save</button>
+                            <button type='button' class="closeTimer">Close</button>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" id="PlayStopBtnCreateSection"><i class="fa-solid fa-play"></i></button>
+                        <button type="button" onclick="displayTimerOptions2(true)">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="timerBanner">Set Timer</p>
+                        </button>
+                        <button type="button" onclick="save_custom()"><i class="fa-solid fa-headphones"></i></button>
+
+                        <!--? count all the sound's boxs-->
+                        <script>
+                            var maiss = 0;
+                            var items = document.querySelectorAll('.sounds-gallery .item');
+                            for(let o = 0; o < items.length; o++){
+                                items[o].dataset.number = o;
+                            }
+                        </script>
+
+                        <!--? to play the sounds relative to the clicked box -->
+                        <script>
+                            var boxs = document.getElementsByClassName('box');
+                            for(let o = 0; o < items.length; o++){
+                                boxs[o].onclick = function(){
+                                    play_custom(this.children[1].getAttribute('class'));
+                                }
+                            }
+                        </script>
+
+                        <!--? add the script to play/stop the audios -->
+                        <script>
+                            var items = document.querySelectorAll('.sounds-gallery .item');
+                            var isPlaying = false;
+                            var count = 0;
+
+                            // add the script to play/stop the audios
+                            for(let o = 0; o < items.length; o++){
+                                items[o].children[0].addEventListener('click', function(){
+                                    items[o].children[0].classList.toggle('activeSound');
+                                    
+                                    if(items[o].children[0].classList.contains('activeSound')){
+                                        items[o].children[2].style.visibility = 'visible';
+                                        items[o].children[3].load();
+                                        items[o].children[3].play();
+                                        isPlaying = true;
+                                        count++;
+
+                                        for(let j = 0; j < items.length; j++){
+                                            if(items[j].children[0].classList.contains('activeSound')){
+                                                items[j].children[3].play();
+                                            }
+                                        }
+                                        updatePlayStopBtn(isPlaying);
+                                    }
+                                    else{
+                                        items[o].children[2].style.visibility = 'hidden';
+                                        items[o].children[3].pause();
+                                        count--;
+                                        if(count == 0){
+                                            isPlaying = false;
+                                        }
+                                        updatePlayStopBtn(isPlaying, count);
+                                    }
+
+                                    items[o].children[2].addEventListener('input', function(){
+                                        items[o].children[3].volume = items[o].children[2].value;
+                                    });
+                                });
+                            }
+                            let PlayStopBtnCreateSection = document.getElementById('PlayStopBtnCreateSection');
+                                
+                            function updatePlayStopBtn(isPlaying, count){
+                                    if(count != 0){
+                                        if(isPlaying){
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-pause';
+                                        }else{
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-play';
+                                        }
+                                    }
+                                    else{
+                                        PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-play';
+                                    }
+                                }
+
+                            PlayStopBtnCreateSection.onclick = function(){
+                                playOrStop(count);
+                            }
+
+                            function playOrStop(count){
+                                if(count != 0){
+                                    if(isPlaying){
+                                        for(let o = 0; o < items.length; o++){
+                                            if(items[o].children[0].classList.contains('activeSound')){
+                                                items[o].children[3].pause();
+                                            }
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-play';
+                                        }
+                                        isPlaying = false;
+                                    }
+                                    else{
+                                        for(let o = 0; o < items.length; o++){
+                                            if(items[o].children[0].classList.contains('activeSound')){
+                                                items[o].children[3].play();
+                                            }
+                                            PlayStopBtnCreateSection.children[0].classList = 'fa-solid fa-pause';
+                                        }
+                                        isPlaying = true;
+                                    }
+                                }
+                            }
+                        </script>
+
+                        <!--? Setting the timer -->
+                        <script>
+                            function displayTimerOptions2(state){
+                                if(state){
+                                    timer.style.visibility = 'visible';
+                                    document.body.style.overflowY = 'hidden';
+                                }else{
+                                    timer.style.visibility = 'hidden';
+                                    document.body.style.overflowY = 'scroll';
+                                }
+                            }
+                        </script>
+
+                        <!--? Setting the function of the timer -->
+                        <script>
+                            var timer = document.querySelector('.timer');
+                            document.querySelector('.closeTimer').onclick = function(){
+                                timer.style.visibility = 'hidden';
+                                document.body.style.overflowY = 'scroll';
+                                for(let j = 0; j < times.length - 2; j++){
+                                        times[j].classList.remove("active_timer_button");
+                                }
+                            }
+
+                            var seconds = 0;
+                            times = timer.children[1].children;
+                            for(let o = 0; o < times.length - 2; o++){
+                                times[o].onclick = function(){
+                                    if(this.dataset.time == 'custom'){
+                                        do{
+                                            seconds = prompt("enter the number of minutes :");
+                                        }while(isNaN(seconds) || seconds == '');
+                                        seconds *= 60;
+                                    }
+                                    else{
+                                        seconds = this.dataset.time * 60;
+                                        for(let j = 0; j < times.length - 2; j++){
+                                            times[j].classList.remove("active_timer_button");
+                                        }
+                                    }
+                                    this.classList.add("active_timer_button");
+                                }
+                            }
+                            times[times.length-2].onclick = function(){
+                                if(count != 0){
+                                    for(let j = 0; j < times.length - 2; j++){
+                                        times[j].classList.remove("active_timer_button");
+                                    }
+
+                                    setInterval(function(){
+                                        if(seconds > 0){
+                                            if(isPlaying){
+                                                seconds--;
+                                                if((seconds % 60) < 10){
+                                                    document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : 0' + seconds % 60;
+                                                }else{
+                                                    document.querySelector('.timerBanner').textContent = Math.floor(seconds / 60) + ' : ' + seconds % 60;
+                                                }
+                                                if(seconds == 0){
+                                                    isPlaying = false;
+                                                    updatePlayStopBtn(isPlaying, count);
+                                                    for(let o = 0; o < items.length; o++){
+                                                        if(items[o].children[0].classList.contains('activeSound')){
+                                                            items[o].children[3].pause();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else{
+                                            document.querySelector('.timerBanner').textContent = 'Set Timer';
+                                        }
+                                    }, 1000);
+                                }
+                                displayTimerOptions2(false);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings" data-display="grid">
+                <nav class="nav">
+                    <h1 class="logo">Maiss Melodies</h1>
+                </nav>
+                <h1>All copyrights are reserved to Maissen Belgacem</h1>
+            </div>
+        </div>
+
+        <div id="toolbar">
+            <img src="components/img/HG200.png">
+            <ul>
+                <li data-target = '0'>
+                    <i class="fa-solid fa-home"></i>
+                </li>
+                <li data-target = '1'>
+                    <i class="fa-solid fa-star"></i>
+                </li>
+                <li data-target = '2'>
+                    <i class="fa-solid fa-music"></i>
+                </li>
+                <li data-target = '3'>
+                    <i class="fa-solid fa-gear"></i>
+                </li>
+            </ul>
+
+            <!--? make the link active once clicked -->
+            <script>
+                var elements = document.getElementById("toolbar").children[1].children;
+                var active_toolbar_link_img = document.getElementById("toolbar").children[0];
+                
+                window.onload = function(){
+                    elements[0].click();
+                }
+                
+                for(let i = 0; i < elements.length; i++){
+                    elements[i].onclick = function(){
+                        var rect = elements[i].getBoundingClientRect();
+                        active_toolbar_link_img.style.left = rect.left + (rect.width / 2) + 'px';
+                        
+                        for(let k = 0; k < elements.length; k++){
+                            elements[k].classList.remove('active-toolbar-link');
+                        }
+                        elements[i].classList.add('active-toolbar-link');
+                        displaySection(elements[i].dataset.target);
+                    }
+                }
+
+                function displaySection(target){
+                    var home = document.getElementById('home');
+                    var customized = document.getElementById('customized');
+                    var create = document.getElementById('create');
+                    var settings = document.getElementById('settings');
+                    var sections = [home, customized, create, settings];
+
+                    for(let i = 0; i < sections.length; i++){
+                        if(i != target){
+                            sections[i].style.display = 'none';
+                        }
+                        else{
+                            sections[i].style.display = sections[i].dataset.display;
+                        }
+                    }
+
+                }
+            </script>
+        </div>
+
+        <!--? apply the filter -->
+        <script>
+            function apply_filter(filter){
+                let boxs = document.querySelectorAll('.box');
+
+                for(let i = 0; i < boxs.length; i++){
+                    if(filter == 'all'){
+                        boxs[i].style.display = 'block';
+                    }
+                    else if(boxs[i].dataset.type == filter){
+                        boxs[i].style.display = 'block';
+                    }
+                    else{
+                        boxs[i].style.display = 'none';
+                    }
+                }      
+            }
+        </script>
+    </main>
+
+    <script src="index/main.js"></script>
+    <script src="index/js/greeting.js"></script>
+</body>
+</html>

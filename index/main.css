@@ -20,19 +20,30 @@
   justify-content: center;
   z-index: 20000;
 }
-#greeting #salut, #greeting #me {
-  margin-top: -300px;
-  display: none;
-}
-#greeting #salut h3, #greeting #me h3 {
+#greeting h3 {
   margin-bottom: 1rem;
   font-size: 2rem;
   color: #000;
 }
-#greeting #salut h3 + h1, #greeting #me h3 + h1 {
+#greeting h3 + h1 {
   font-size: 3rem;
   font-family: "VarieGraphie", sans-serif;
   color: #033052;
+}
+#greeting #salut, #greeting #me, #greeting #full_screen {
+  margin-top: -300px;
+  display: none;
+}
+#greeting #full_screen {
+  padding: 0 3rem;
+  text-align: center;
+}
+#greeting #full_screen h3 {
+  color: #033052;
+}
+#greeting #full_screen button {
+  font-family: "VarieGraphie", sans-serif;
+  letter-spacing: 2px;
 }
 #greeting #select-purpose {
   text-align: center;
@@ -67,7 +78,7 @@
 #greeting #select-purpose__select button img {
   width: 3rem;
 }
-#greeting #select-purpose #x {
+#greeting #full_screen button, #greeting #select-purpose #x {
   padding: 1rem 2.9rem;
   background: #002c23;
   color: white;

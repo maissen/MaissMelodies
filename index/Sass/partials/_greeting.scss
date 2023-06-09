@@ -11,20 +11,35 @@
     align-items: center;
     justify-content: center;
     z-index: 20000;
+    
+    h3{
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: #000;   
+        & + h1{
+            font-size: 3rem;
+            font-family: $main-font;
+            color: #033052;
+        }
+    }
 
-    #salut, #me{
+    #salut, #me, #full_screen{
         margin-top: -300px;
         display: none;
+    }
 
+    #full_screen{
+        // display: block;
+        padding: 0 3rem;
+        text-align: center;
+        
         h3{
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            color: #000;   
-            & + h1{
-                font-size: 3rem;
-                font-family: $main-font;
-                color: #033052;
-            }
+            color: #033052;
+        }
+        button{
+            @extend %btn;
+            font-family: $main-font;
+            letter-spacing: 2px;
         }
     }
     
@@ -55,14 +70,17 @@
             }  
         }
         #x{
-            padding: 1rem 2.9rem;
-            background: $main-color-1;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: 550;
-            border-radius: 50px;
+            @extend %btn;
         }
     }
 }
 
+%btn{
+    padding: 1rem 2.9rem;
+    background: $main-color-1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 550;
+    border-radius: 50px;
+}
