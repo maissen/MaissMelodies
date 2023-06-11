@@ -1,5 +1,5 @@
 #toolbar{
-    height: 70px;
+    height: $toolbar-height;
     width: 100%;
     background: #141414;
     position: fixed;
@@ -11,7 +11,7 @@
         height: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         list-style-type: none;
 
         li{
@@ -20,23 +20,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             color: gray;
             position: relative;
             transition:color $transition;
             z-index: 1;
+
+            i{
+                margin-bottom: .5rem;
+            }
         }
     }
 
-    img{
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 60px;
-        transition: $transition;
-        z-index: 0;
-    }
-
-    .active-toolbar-link{
-        color: white !important;
+    .active-toolbar-item{
+        color: $main-color-2 !important;
     }
 }

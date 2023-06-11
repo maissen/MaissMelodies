@@ -242,7 +242,7 @@
 }
 
 #toolbar {
-  height: 70px;
+  height: 60px;
   width: 100%;
   background: #141414;
   position: fixed;
@@ -254,7 +254,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   list-style-type: none;
 }
 #toolbar ul li {
@@ -263,21 +263,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: gray;
   position: relative;
   transition: color 0.4s;
   z-index: 1;
 }
-#toolbar img {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  transition: 0.4s;
-  z-index: 0;
+#toolbar ul li i {
+  margin-bottom: 0.5rem;
 }
-#toolbar .active-toolbar-link {
-  color: white !important;
+#toolbar .active-toolbar-item {
+  color: #007960 !important;
 }
 
 #home > div {
@@ -460,7 +456,7 @@
 }
 #create > div .action-buttons {
   position: fixed;
-  bottom: 70px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -470,21 +466,17 @@
   justify-content: space-between;
   align-content: center;
   background: linear-gradient(to top, #141414, rgba(20, 20, 20, 0.5));
+  font-size: 1.35rem;
   z-index: 10;
 }
 #create > div .action-buttons button {
-  font-size: 1.5rem;
   color: white;
   border: 2px solid white;
   background: none;
-  font-size: 1.5rem;
   border-radius: 25px;
-  height: 3.75rem;
-  width: 3.75rem;
+  height: 3.5rem;
+  width: 3.5rem;
   text-align: center;
-}
-#create > div .action-buttons button:nth-child(2) {
-  width: 7rem;
 }
 #create > div .action-buttons button:nth-child(2) {
   display: flex;

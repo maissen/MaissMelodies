@@ -33,7 +33,7 @@
             <h3>Made By</h3>
             <h1>Maissen Belgacem</h1>
         </div>
-
+    
         <div id="select-purpose" data-display = 'block'>
             <h1 id="select-purpose__title">You are looking for</h1>
             <div id="select-purpose__select">
@@ -57,7 +57,7 @@
                     <p>Work</p>
                     <audio src="components/audio/fa.mp3"></audio>
                 </button>
-
+    
                 <!--? this script is to add the sound once you click on the items -->
                 <script>
                     var select_buttons = document.querySelectorAll('#select-purpose__select button');
@@ -67,7 +67,7 @@
                                 this.dataset.active = 'true';
                                 this.querySelector('audio').load();
                                 this.querySelector('audio').play();
-
+    
                                 this.style.backgroundColor = this.dataset.color2 + " !important";
                                 this.classList.add('active-select-purpose-btn');
                             }else{
@@ -84,13 +84,13 @@
                 <audio src="components/audio/sol.mp3"></audio>
             </button>
         </div>
-
+    
         <div id="full_screen" data-display = 'block'>
             <h3>Please click this button to enable 'full screen' for a better user experience</h3>
             <button type="button" class="full_screen_btn">Go Full Screen</button>
             <button type="button" class="skip_btn">Skip</button>
         </div>
-
+    
         <!--?  Check if the Fullscreen API is available -->
         <script>
             var fullScreenAvailable = false;
@@ -103,13 +103,13 @@
         </script>
         
         <!--? this script to play the fade-out and disppear animations for the elements -->
-        <script>
+        <script>    
             var i = 0;
             var salut = document.getElementById('salut');
             var me = document.getElementById('me');
             var select_purpose = document.getElementById('select-purpose');
             var full_screen = document.getElementById('full_screen');
-
+    
             appear(salut);
             setTimeout(function() {
                 disappear(salut);
@@ -123,10 +123,10 @@
             setTimeout(function() {
                 appear(select_purpose);
             }, 8000);
-
+    
             // <!--! go full screen button -->
             document.querySelector('#full_screen button').addEventListener('click', function(){
-
+    
                 // <!--! to go full screen -->
                 if (document.documentElement.requestFullscreen) {
                     document.documentElement.requestFullscreen();
@@ -137,20 +137,20 @@
                 } else if (document.documentElement.msRequestFullscreen) {
                     document.documentElement.msRequestFullscreen();
                 } 
-
+    
                 disappear(full_screen);
-
+    
                 setTimeout(() => {
                     document.getElementById('greeting').style.display = 'none';
                     document.getElementById('main-content').style.display = 'block';
                     document.getElementById("toolbar").children[1].children[0].click();
                 }, 1500);
             });        
-
+    
             // <!--! skip full screen button -->
             document.querySelector('.skip_btn').onclick = function(){
                 disappear(full_screen);
-
+    
                 setTimeout(() => {
                     document.getElementById('greeting').style.display = 'none';
                     document.getElementById('main-content').style.display = 'block';
@@ -162,7 +162,7 @@
             document.querySelector('#select-purpose #x').addEventListener('click', function(){
                 disappear(select_purpose);
                 this.querySelector('audio').play();
-
+    
                 if(fullScreenAvailable){
                     setTimeout(() => {
                         appear(full_screen);
@@ -174,7 +174,7 @@
                     }, 1500);
                 }
             });
-
+    
             function appear(element){
                 element.style.display = element.dataset.display;
                 element.style.animation = 'fade-out 1.5s linear';
@@ -185,10 +185,10 @@
                     element.style.display = 'none';
                     element.style.animation = '';
                 }, 1500);
-                document.getElementById('toolbar').children[1].children[0].click();
+                document.getElementById('toolbar').children[0].children[0].click();
             }
         </script>
-
+    
         <!--? to avoid displaying the content before the bg image -->
         <script>
             window.addEventListener('load', function() {
@@ -808,7 +808,7 @@
                     </div>
 
                     <div class="timer">
-                        <p>- Set Time -</p>
+                        <p>- Set Timer -</p>
                         <div>
                             <button type='button' data-time='15'>15 Minutes</button>
                             <button type='button' data-time='30'>30 Minutes</button>
@@ -1021,36 +1021,35 @@
         </div>
 
         <div id="toolbar">
-            <img src="components/img/HG200.png">
             <ul>
-                <li data-target = '0'>
+                <li data-target = '0' class="active-toolbar-item">
                     <i class="fa-solid fa-home"></i>
+                    <p>Home</p>
                 </li>
                 <li data-target = '1'>
                     <i class="fa-solid fa-star"></i>
+                    <p>Saved</p>
                 </li>
                 <li data-target = '2'>
                     <i class="fa-solid fa-music"></i>
+                    <p>Create</p>
                 </li>
                 <li data-target = '3'>
                     <i class="fa-solid fa-gear"></i>
+                    <p>More</p>
                 </li>
             </ul>
 
             <!--? make the link active once clicked -->
             <script>
-                var elements = document.getElementById("toolbar").children[1].children;
-                var active_toolbar_link_img = document.getElementById("toolbar").children[0];
+                var elements = document.getElementById("toolbar").children[0].children;
                 
                 for(let i = 0; i < elements.length; i++){
                     elements[i].onclick = function(){
-                        var rect = elements[i].getBoundingClientRect();
-                        active_toolbar_link_img.style.left = rect.left + (rect.width / 2) + 'px';
-                        
                         for(let k = 0; k < elements.length; k++){
-                            elements[k].classList.remove('active-toolbar-link');
+                            elements[k].classList.remove('active-toolbar-item');
                         }
-                        elements[i].classList.add('active-toolbar-link');
+                        this.classList.add('active-toolbar-item');
                         displaySection(elements[i].dataset.target);
                     }
                 }

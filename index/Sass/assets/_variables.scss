@@ -17,6 +17,7 @@ $timer-dimention: 210px;
 $c1-zindex: timer-zindex - 1;
 $c2-zindex: timer-zindex - 2;
 $c3-zindex: timer-zindex - 3;
+$toolbar-height: 60px;
 
 @mixin top-banner-logo(){
     text-align: center;
