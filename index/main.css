@@ -63,7 +63,7 @@
   margin-bottom: 2.5rem;
 }
 #greeting #select-purpose__select button {
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0);
   transition: background 0.4s;
   padding: 1rem 2.3rem;
   cursor: pointer;
@@ -83,6 +83,20 @@
 }
 #greeting #select-purpose__select button img {
   width: 3rem;
+}
+#greeting #select-purpose__select .active-select-purpose-btn {
+  border-color: #002c23;
+}
+#greeting #select-purpose__select .active-select-purpose-btn img {
+  animation: scalexx 0.2s linear;
+}
+@keyframes scalexx {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
 }
 #greeting #full_screen .full_screen_btn, #greeting #full_screen .skip_btn, #greeting #select-purpose #x {
   padding: 1rem 2.9rem;

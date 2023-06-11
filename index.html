@@ -34,22 +34,22 @@
                 <button type="button" data-color1 = '#6ab4f9c9' data-color2="royalblue" data-active='false'>
                     <img src="https://img.icons8.com/color/48/baby-mobile.png" alt="baby-mobile"/>
                     <p>Better Sleep</p>
-                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                    <audio src="components/audio/do.mp3"></audio>
                 </button>
                 <button type="button" data-color1 = '#ffafccc9' data-color2="crimson" data-active='false'>
                     <img src="https://img.icons8.com/color/48/meditation-guru.png" alt="baby-mobile"/>
                     <p>Relaxing</p>
-                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                    <audio src="components/audio/re.mp3"></audio>
                 </button>
                 <button type="button" data-color1 = '#cdb4dbc9' data-color2="purple" data-active='false'>
                     <img src="https://img.icons8.com/color/48/services--v1.png" alt="baby-mobile"/>
                     <p>Focus</p>
-                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                    <audio src="components/audio/mi.mp3"></audio>
                 </button>
                 <button type="button" data-color1 = '#99d98cc9' data-color2="darkgreen" data-active='false'>
                     <img src="https://img.icons8.com/color/48/working-with-a-laptop.png" alt="baby-mobile"/>
                     <p>Work</p>
-                    <audio src="components/audio/Water Drop - Cute Sound ! Notification.mp3"></audio>
+                    <audio src="components/audio/fa.mp3"></audio>
                 </button>
 
                 <!--? this script is to add the sound once you click on the items -->
@@ -57,23 +57,26 @@
                     var select_buttons = document.querySelectorAll('#select-purpose__select button');
                     for(let i = 0; i < select_buttons.length; i++){
                         select_buttons[i].addEventListener('click', function(){
-                            if(select_buttons[i].type.active == 'false'){
-                                select_buttons[i].dataset.active = 'true';
-                                select_buttons[i].querySelector('audio').load();
-                                select_buttons[i].querySelector('audio').play();
+                            if(this.dataset.active == 'false'){
+                                this.dataset.active = 'true';
+                                this.querySelector('audio').load();
+                                this.querySelector('audio').play();
 
-                                select_buttons[i].style.background = "{select_buttons[i].dataset.color2} !important";
-                                console.log(select_buttons[i].dataset.color2);
+                                this.style.backgroundColor = this.dataset.color2 + " !important";
+                                this.classList.add('active-select-purpose-btn');
                             }else{
-                                select_buttons[i].dataset.active = 'false';
-                                select_buttons[i].style.background = "{select_buttons[i].dataset.color1} !important";
-                                console.log(select_buttons[i].dataset.color1);
+                                this.dataset.active = 'false';
+                                this.style.background = this.dataset.color1 + " !important";
+                                this.classList.remove('active-select-purpose-btn');
                             }
                         });
                     }
                 </script>
             </div>
-            <button type="button" id="x">Next</button>
+            <button type="button" id="x">
+                Next
+                <audio src="components/audio/sol.mp3"></audio>
+            </button>
         </div>
 
         <div id="full_screen" data-display = 'block'>
@@ -140,18 +143,19 @@
 
             // <!--! skip full screen button -->
             document.querySelector('.skip_btn').onclick = function(){
-                // disappear(full_screen);
+                disappear(full_screen);
 
-                // setTimeout(() => {
-                //     document.getElementById('greeting').style.display = 'none';
-                //     document.getElementById('main-content').style.display = 'block';
-                //     document.getElementById("toolbar").children[1].children[0].click();
-                // }, 1500);
+                setTimeout(() => {
+                    document.getElementById('greeting').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    document.getElementById("toolbar").children[1].children[0].click();
+                }, 1500);
             }
             
             //<!--! select purpose section --> 
             document.querySelector('#select-purpose #x').addEventListener('click', function(){
                 disappear(select_purpose);
+                this.querySelector('audio').play();
 
                 if(fullScreenAvailable){
                     setTimeout(() => {

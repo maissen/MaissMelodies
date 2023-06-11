@@ -61,7 +61,7 @@
             margin-bottom: 2.5rem;
 
             button{
-                border: none;
+                border: 2px solid #ffffff00;
                 transition:background $transition;
                 &:nth-child(1){background: #6ab4f9c9; /*&:hover{background: royalblue}*/}
                 &:nth-child(2){background: #ffafccc9; /*&:hover{background: lighten(#a70842c9, 10%);}*/}
@@ -75,6 +75,22 @@
                     width: 3rem;
                 }
             }  
+
+            .active-select-purpose-btn{
+                border-color:$main-color-1;
+                & img{
+                    animation: scalexx .2s linear;
+                }
+
+                @keyframes scalexx{
+                    0%, 100%{
+                        transform: scale(1);
+                    }
+                    50%{
+                        transform: scale(1.4);
+                    }
+                }
+            }
         }
         #x{
             @extend %btn;
