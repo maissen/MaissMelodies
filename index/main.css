@@ -42,8 +42,14 @@
   color: #033052;
 }
 #greeting #full_screen button {
-  font-family: "VarieGraphie", sans-serif;
-  letter-spacing: 2px;
+  margin: auto;
+  display: block;
+}
+#greeting #full_screen .skip_btn {
+  margin-top: 1rem;
+  background: none;
+  color: #002c23;
+  font-size: 1.3rem;
 }
 #greeting #select-purpose {
   text-align: center;
@@ -81,6 +87,8 @@
 #greeting #full_screen button, #greeting #select-purpose #x {
   padding: 1rem 2.9rem;
   background: #002c23;
+  font-family: "VarieGraphie", sans-serif;
+  letter-spacing: 0.2rem;
   color: white;
   border: none;
   cursor: pointer;

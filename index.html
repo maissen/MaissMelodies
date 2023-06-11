@@ -21,7 +21,7 @@
         <div id="salut" data-display = 'block'>
             <h3>Welcome To</h3>
             <h1>Maiss Melodies</h1>
-            <h4><strong>V1.1.1</strong></h4>
+            <h4><strong>V1.1.2</strong></h4>
         </div>
         <div id="me" data-display = 'block'>
             <h3>Made By</h3>
@@ -79,6 +79,7 @@
         <div id="full_screen" data-display = 'block'>
             <h3>Please click this button to enable 'full screen' for a better user experience</h3>
             <button type="button">Go Full Screen</button>
+            <button type="button" class="skip_btn">Skip</button>
         </div>
 
         <!--?  Check if the Fullscreen API is available -->
@@ -114,9 +115,10 @@
                 appear(select_purpose);
             }, 8000);
 
+            // <!--! go full screen button -->
             document.querySelector('#full_screen button').addEventListener('click', function(){
 
-                <!--! to go full screen -->
+                // <!--! to go full screen -->
                 if (document.documentElement.requestFullscreen) {
                     document.documentElement.requestFullscreen();
                 } else if (document.documentElement.webkitRequestFullscreen) {
@@ -136,6 +138,18 @@
                 }, 1500);
             });        
 
+            // <!--! skip full screen button -->
+            document.querySelector('.skip_btn').onclick = function(){
+                disappear(full_screen);
+
+                setTimeout(() => {
+                    document.getElementById('greeting').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    document.getElementById("toolbar").children[1].children[0].click();
+                }, 1500);
+            }
+            
+            //<!--! select purpose section --> 
             document.querySelector('#select-purpose #x').addEventListener('click', function(){
                 disappear(select_purpose);
 

@@ -29,7 +29,6 @@
     }
 
     #full_screen{
-        // display: block;
         padding: 0 3rem;
         text-align: center;
         
@@ -38,8 +37,15 @@
         }
         button{
             @extend %btn;
-            font-family: $main-font;
-            letter-spacing: 2px;
+            margin: auto;
+            display: block;
+
+        }
+        .skip_btn{
+            margin-top: 1rem;
+            background: none;
+            color: $main-color-1;
+            font-size: 1.3rem;
         }
     }
     
@@ -78,6 +84,8 @@
 %btn{
     padding: 1rem 2.9rem;
     background: $main-color-1;
+    font-family: $main-font;
+    letter-spacing: .2rem;
     color: white;
     border: none;
     cursor: pointer;
