@@ -558,8 +558,38 @@ body {
   font-weight: 500;
 }
 
+#screen_banner {
+  display: none;
+}
+
 @media (min-width: 1024px) {
+  #greeting, #main-content {
+    display: none !important;
+  }
   body {
-    display: none;
+    height: 100vh;
+    text-align: center;
+    background: white;
+    text-shadow: 2px 2px 4px #474747;
+    padding: 2rem;
+  }
+  body #screen_banner {
+    display: block;
+  }
+  body #screen_banner img {
+    width: 40%;
+    animation: floating 4s ease-in-out infinite;
+    margin-bottom: 1rem;
+  }
+  @keyframes floating {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(0, 10px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
 }/*# sourceMappingURL=main.css.map */
