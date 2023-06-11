@@ -35,16 +35,17 @@
         h3{
             color: #033052;
         }
-        button{
+        .full_screen_btn{
             @extend %btn;
             margin: auto;
             display: block;
 
         }
         .skip_btn{
+            @extend %btn;
             margin-top: 1rem;
-            background: none;
-            color: $main-color-1;
+            background: none !important;
+            color: $main-color-1 !important;
             font-size: 1.3rem;
         }
     }

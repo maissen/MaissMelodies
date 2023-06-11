@@ -41,14 +41,14 @@
 #greeting #full_screen h3 {
   color: #033052;
 }
-#greeting #full_screen button {
+#greeting #full_screen .full_screen_btn {
   margin: auto;
   display: block;
 }
 #greeting #full_screen .skip_btn {
   margin-top: 1rem;
-  background: none;
-  color: #002c23;
+  background: none !important;
+  color: #002c23 !important;
   font-size: 1.3rem;
 }
 #greeting #select-purpose {
@@ -84,7 +84,7 @@
 #greeting #select-purpose__select button img {
   width: 3rem;
 }
-#greeting #full_screen button, #greeting #select-purpose #x {
+#greeting #full_screen .full_screen_btn, #greeting #full_screen .skip_btn, #greeting #select-purpose #x {
   padding: 1rem 2.9rem;
   background: #002c23;
   font-family: "VarieGraphie", sans-serif;

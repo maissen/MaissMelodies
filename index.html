@@ -78,7 +78,7 @@
 
         <div id="full_screen" data-display = 'block'>
             <h3>Please click this button to enable 'full screen' for a better user experience</h3>
-            <button type="button">Go Full Screen</button>
+            <button type="button" class="full_screen_btn">Go Full Screen</button>
             <button type="button" class="skip_btn">Skip</button>
         </div>
 
@@ -140,13 +140,13 @@
 
             // <!--! skip full screen button -->
             document.querySelector('.skip_btn').onclick = function(){
-                disappear(full_screen);
+                // disappear(full_screen);
 
-                setTimeout(() => {
-                    document.getElementById('greeting').style.display = 'none';
-                    document.getElementById('main-content').style.display = 'block';
-                    document.getElementById("toolbar").children[1].children[0].click();
-                }, 1500);
+                // setTimeout(() => {
+                //     document.getElementById('greeting').style.display = 'none';
+                //     document.getElementById('main-content').style.display = 'block';
+                //     document.getElementById("toolbar").children[1].children[0].click();
+                // }, 1500);
             }
             
             //<!--! select purpose section --> 
@@ -226,13 +226,13 @@
 
                         <!--? add the nav-active-button to the clicked button -->
                         <script>
-                            let buttons = document.querySelectorAll('button');
-                            for(let i = 0; i < buttons.length; i++){
-                                buttons[i].addEventListener('click', function(){
-                                    for(let j = 0; j < buttons.length; j++){
-                                        buttons[j].classList.remove('nav-active-button');
+                            let nav_btn = document.querySelectorAll('.nav__mixes-filter button');
+                            for(let i = 0; i < nav_btn.length; i++){
+                                nav_btn[i].addEventListener('click', function(){
+                                    for(let j = 0; j < nav_btn.length; j++){
+                                        nav_btn[j].classList.remove('nav-active-button');
                                     }
-                                    buttons[i].classList.add('nav-active-button');
+                                    nav_btn[i].classList.add('nav-active-button');
                                 });
                             }
                         </script>
