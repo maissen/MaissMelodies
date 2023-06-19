@@ -110,19 +110,19 @@
             var select_purpose = document.getElementById('select-purpose');
             var full_screen = document.getElementById('full_screen');
     
-            appear(salut);
-            setTimeout(function() {
-                disappear(salut);
-            }, 2500);
-            setTimeout(function() {
-                appear(me);
-            }, 4000);
-            setTimeout(function() {
-                disappear(me);
-            }, 6500);
+            // appear(salut);
+            // setTimeout(function() {
+            //     disappear(salut);
+            // }, 2500);
+            // setTimeout(function() {
+            //     appear(me);
+            // }, 4000);
+            // setTimeout(function() {
+            //     disappear(me);
+            // }, 6500);
             setTimeout(function() {
                 appear(select_purpose);
-            }, 8000);
+            }, 0); //8000
     
             // <!--! go full screen button -->
             document.querySelector('#full_screen button').addEventListener('click', function(){
@@ -325,11 +325,11 @@
                 </nav>
                 <div id="custom_item" class='custom_item'>
                     <div class="thumb">
-                        <i class="fa-solid fa-headphones"></i>
+                        <i class="fa-regular fa-floppy-disk"></i>
                     </div>
                     <div class="second">
                         <div class="name">A Custom Mix</div>
-                        <button type="button"><i class="fa-solid fa-heart"></i></button>
+                        <button type="button"><i class="fa-solid fa-trash"></i></button>
                     </div>
                     <div class=""></div>
                 </div>
@@ -827,7 +827,7 @@
                             <i class="fa-solid fa-clock"></i>
                             <p class="timerBanner">Set Timer</p>
                         </button>
-                        <button type="button" onclick="save_custom()"><i class="fa-solid fa-headphones"></i></button>
+                        <button type="button" onclick="save_custom()"><i class="fa-regular fa-floppy-disk"></i></button>
 
                         <!--? count all the sound's boxs-->
                         <script>

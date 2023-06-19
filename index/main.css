@@ -254,7 +254,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   list-style-type: none;
 }
 #toolbar ul li {
@@ -466,12 +466,11 @@
   justify-content: space-between;
   align-content: center;
   background: linear-gradient(to top, #141414, rgba(20, 20, 20, 0.5));
-  font-size: 1.35rem;
+  font-size: 1.75rem;
   z-index: 10;
 }
 #create > div .action-buttons button {
   color: white;
-  border: 2px solid white;
   background: none;
   border-radius: 25px;
   height: 3.5rem;

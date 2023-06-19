@@ -100,12 +100,11 @@
             justify-content: space-between;
             align-content: center;
             background: linear-gradient(to top, #141414, rgba(#141414, .5));
-            font-size: 1.35rem;
+            font-size: 1.75rem;
             z-index: $nav-zindex;
 
             button{
                 color: white;
-                border: 2px solid white;
                 background: none;
                 border-radius: 25px;
                 height: 3.5rem;

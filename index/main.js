@@ -1,8 +1,3 @@
-window.onload = function(){
-    
-}
-
-
 function save_custom(){
     if(count != 0){
         var item = document.getElementById('custom_item').cloneNode(true);
@@ -27,7 +22,7 @@ function save_custom(){
         var saved_items = document.getElementsByClassName('custom_item');
         for(let j = 0; j < saved_items.length; j++){
             saved_items[j].onclick = function(event){
-                if(event.target != "<button type=\"button\"><i class=\"fa-solid fa-heart\"></i></button>"){
+                if(event.target != "<button type=\"button\"><i class=\"fa-solid fa-trash\"></i></button>"){
                     play_custom(saved_items[j].children[2].getAttribute('class'));
                 }
             }
@@ -44,7 +39,7 @@ function save_custom(){
 
 function play_custom(ch){
 
-    document.getElementById('toolbar').children[1].children[2].click();
+    document.getElementById('toolbar').children[0].children[2].click();
 
     var items = document.querySelectorAll('.sounds-gallery .item');
     for(let o = 0; o < items.length; o++){
