@@ -38,12 +38,15 @@ function save_custom(){
             saved_items[j].children[1].children[1].onclick = function(){
                 if(confirm("Are you sure you want to delete " + item.getElementsByClassName('name')[0].textContent)){
                     customized.removeChild(saved_items[j]);
+                    displayToast("Deleted successfully !");
                     number_of_custom_sounds--;
                     (number_of_custom_sounds != 0)? customized.querySelector('.info').style.display = 'none': customized.querySelector('.info').style.display = 'block';
                 }
             }
         }
     }
+
+    displayToast("Saved successfully !");
 }
 
 function play_custom(ch){

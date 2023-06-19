@@ -23,11 +23,29 @@
         <h1>Unfortunately large screen sizes aren't supported, please open this website on a smaller device like your phone!</h1>
     </div>
 
+    <div id="toast"></div>
+
+    <script>
+        function displayToast(x){
+            var toast = document.getElementById('toast');
+            toast.textContent = x;
+            toast.style.display = 'block';
+            toast.style.animationName = "displayToast";
+
+            setTimeout(function(){
+                toast.style.animationName = "hideToast";
+            }, 1500);
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2200);
+        }
+    </script>
+
     <section id="greeting">
         <div id="salut" data-display = 'block'>
             <h3>Welcome To</h3>
             <h1>Maiss Melodies</h1>
-            <h4><strong>V3.0.0</strong></h4>
+            <h4><strong>V3.1.0</strong></h4>
         </div>
         <div id="me" data-display = 'block'>
             <h3>Made By</h3>
@@ -1066,7 +1084,7 @@
                     Use your headphones for a better user experience !
                     <br>
                     <br>
-                    Version : V2.2.0
+                    Version : V3.1.0
                 </p>
                 <br>
                 <p>Enjoy !</p>
