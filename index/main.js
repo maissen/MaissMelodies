@@ -1,5 +1,8 @@
+var number_of_custom_sounds = 0;
+
 function save_custom(){
     if(count != 0){
+        number_of_custom_sounds++;
         var item = document.getElementById('custom_item').cloneNode(true);
         item.style.display = 'flex';
         var customized = document.getElementById('customized');
@@ -18,7 +21,11 @@ function save_custom(){
             }
         }
 
+        customized.querySelector('.info').style.display = 'none';
+        (number_of_custom_sounds != 0)? customized.querySelector('.info').style.display = 'none': customized.querySelector('.info').style.display = 'block';
+
         customized.appendChild(item);
+
         var saved_items = document.getElementsByClassName('custom_item');
         for(let j = 0; j < saved_items.length; j++){
             saved_items[j].onclick = function(event){
@@ -31,6 +38,8 @@ function save_custom(){
             saved_items[j].children[1].children[1].onclick = function(){
                 if(confirm("Are you sure you want to delete " + item.getElementsByClassName('name')[0].textContent)){
                     customized.removeChild(saved_items[j]);
+                    number_of_custom_sounds--;
+                    (number_of_custom_sounds != 0)? customized.querySelector('.info').style.display = 'none': customized.querySelector('.info').style.display = 'block';
                 }
             }
         }

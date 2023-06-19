@@ -319,6 +319,12 @@
   }
 }
 
+#customized .info {
+  margin-top: 0rem;
+  color: gray;
+  font-size: 1.7rem;
+  margin: auto;
+}
 #customized div {
   display: flex;
   align-items: center;
@@ -342,7 +348,7 @@
   height: 100%;
 }
 #customized div .second button {
-  color: #007960;
+  color: gray;
   font-size: 1.6rem;
   border: none;
   background: none;

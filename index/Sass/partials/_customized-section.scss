@@ -1,8 +1,13 @@
 #customized{
-    // background: yellowgreen;
+
+    .info{
+        margin-top: 0rem;
+        color: gray;
+        font-size: 1.7rem;
+        margin: auto;
+    }
 
     div{
-        // background: red;
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
@@ -25,7 +30,7 @@
             height: 100%;
             
             button{
-                color: $main-color-2;
+                color: gray;
                 font-size: 1.6rem;
                 border: none;
                 background: none;
