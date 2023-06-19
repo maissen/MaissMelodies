@@ -27,7 +27,7 @@
         <div id="salut" data-display = 'block'>
             <h3>Welcome To</h3>
             <h1>Maiss Melodies</h1>
-            <h4><strong>V2.1.0</strong></h4>
+            <h4><strong>V2.2.0</strong></h4>
         </div>
         <div id="me" data-display = 'block'>
             <h3>Made By</h3>
@@ -110,19 +110,19 @@
             var select_purpose = document.getElementById('select-purpose');
             var full_screen = document.getElementById('full_screen');
     
-            // appear(salut);
-            // setTimeout(function() {
-            //     disappear(salut);
-            // }, 2500);
-            // setTimeout(function() {
-            //     appear(me);
-            // }, 4000);
-            // setTimeout(function() {
-            //     disappear(me);
-            // }, 6500);
+            appear(salut);
+            setTimeout(function() {
+                disappear(salut);
+            }, 2500);
+            setTimeout(function() {
+                appear(me);
+            }, 4000);
+            setTimeout(function() {
+                disappear(me);
+            }, 6500);
             setTimeout(function() {
                 appear(select_purpose);
-            }, 0); //8000
+            }, 8000); //
     
             // <!--! go full screen button -->
             document.querySelector('#full_screen button').addEventListener('click', function(){
@@ -1019,7 +1019,57 @@
                 <nav class="nav">
                     <h1 class="logo">Maiss Melodies</h1>
                 </nav>
-                <h1>All copyrights are reserved to Maissen Belgacem</h1>
+                <h1>Developper Contant</h1>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/maissen.belgacem.5" target="_blank">
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <p>Maissen JP</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/maissen" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                            <p>Maissen</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/maissen_jpn/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p>Maissen_jpn</p>
+                        </a>
+                    </li>
+                    <li onclick="copyToClipboard()">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>Maissen.developer500@gmail.com</p>
+
+                        <!--! To copy the email to clipboard -->
+                        <script>
+                            function copyToClipboard() {
+                            navigator.clipboard.writeText("maissen.developer500@gmail.com")
+                                .then(function() {
+                                alert("Email copied to clipboard!");
+                                })
+                                .catch(function() {
+                                    alert("Failed to copy Email: ");
+                                });
+                            }
+                        </script>
+                    </li>
+                </ul>
+
+                <h1>Important</h1>
+                <p>
+                    Please Consider supporting me & if there's some suggestions i would be glad if you text me. 
+                    <br>
+                    <br>
+                    Use your headphones for a better user experience !
+                    <br>
+                    <br>
+                    Version : V2.2.0
+                </p>
+                <br>
+                <p>Enjoy !</p>
             </div>
         </div>
 

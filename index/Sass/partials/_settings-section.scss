@@ -1,5 +1,40 @@
 #settings{
-    color: gray;
-    text-align: center;
-    font-size: 1.2rem;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+
+    h1{
+        font-size: 1.5rem;
+        font-family: $main-font;
+        letter-spacing: 3px;
+    }
+
+    ul{
+        margin-top: 1rem;
+
+        li{
+            list-style-type: none;
+            color: gray;
+            margin: .5rem 2rem;
+            
+            a{
+                color: gray;
+                text-decoration: none;
+            }
+            p{
+                display: inline-block;
+                margin-left: .5rem;
+            }
+
+            &:last-child{
+                margin-bottom: 1.7rem;
+            }
+        }
+    }
+
+    h1 + p{
+        margin-left: 2.5rem;
+        margin-top: 1rem;
+        color: gray;
+    }
 }

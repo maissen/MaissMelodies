@@ -1,8 +1,8 @@
 #create{
+    background: linear-gradient(to bottom, $main-color-1, #141414);
     & > div{
         padding: 0 1rem;
         padding-bottom: 8rem;
-        background: linear-gradient(to bottom, $main-color-1, #141414);
 
         h1{
             margin: 1.8rem 0 2rem 0;
